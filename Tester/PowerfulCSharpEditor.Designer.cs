@@ -71,7 +71,7 @@ namespace Tester
             this.forwardStripButton = new System.Windows.Forms.ToolStripButton();
             this.tbFind = new System.Windows.Forms.ToolStripTextBox();
             this.Viewer = new System.Windows.Forms.WebBrowser();
-            this._tableLayoutPanel = new TableLayoutPanel();
+            this.splitContainer = new SplitContainer();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.bookmarkPlusButton = new System.Windows.Forms.ToolStripButton();
@@ -82,6 +82,7 @@ namespace Tester
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsFiles = new FarsiLibrary.Win.FATabStrip();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.splitter2 = new System.Windows.Forms.Splitter();
             this.sfdMain = new System.Windows.Forms.SaveFileDialog();
             this.ofdMain = new System.Windows.Forms.OpenFileDialog();
             this.cmMain = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -109,6 +110,7 @@ namespace Tester
             this.msMain.SuspendLayout();
             this.ssMain.SuspendLayout();
             this.tsMain.SuspendLayout();
+            this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tsFiles)).BeginInit();
             this.cmMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectExplorer)).BeginInit();
@@ -527,9 +529,9 @@ namespace Tester
             // 
             this.tsFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tsFiles.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.tsFiles.Location = new System.Drawing.Point(175, 49);
+//            this.tsFiles.Location = new System.Drawing.Point(175, 49);
             this.tsFiles.Name = "tsFiles";
-            this.tsFiles.Size = new System.Drawing.Size(594, defHeight);
+//            this.tsFiles.Size = new System.Drawing.Size(594, defHeight);
             this.tsFiles.TabIndex = 0;
             this.tsFiles.Text = "faTabStrip1";
             this.tsFiles.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
@@ -541,21 +543,22 @@ namespace Tester
             this.Viewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Viewer.DocumentText = "MY VIEWER";
             //
-            // _tableLayoutPanel
+            // splitContainer
             //
-            this._tableLayoutPanel.Location = new System.Drawing.Point(175, 349);            
-            this._tableLayoutPanel.Size = new System.Drawing.Size(594, defHeight);
-            this._tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tableLayoutPanel.RowStyles.Clear();
-            this._tableLayoutPanel.ColumnStyles.Clear();
-            this._tableLayoutPanel.RowCount += 2;
-            this._tableLayoutPanel.ColumnCount += 1;
-            this._tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100.0F));
-            this._tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent,50.0F));
-            this._tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent,50.0F));
-            this._tableLayoutPanel.Controls.Add(tsFiles,0,0);
-//            this.tsFiles.Dock = DockStyle.Fill;
-            this._tableLayoutPanel.Controls.Add(Viewer,0,1);
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer.Location = new System.Drawing.Point(175, 349);
+            this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+//            this.splitContainer.Size = new System.Drawing.Size(594, defHeight);
+            this.splitContainer.SplitterDistance = 125;
+            this.splitContainer.SplitterWidth = 6;
+            this.splitContainer.TabIndex = 0;
+            this.splitContainer.Panel1.Controls.Add(tsFiles);
+            this.splitContainer.Panel1.Name = "splitterPanel3";
+
+            // This splitter panel contains the bottom ListView control.
+            this.splitContainer.Panel2.Controls.Add(Viewer);
+            this.splitContainer.Panel2.Name = "splitterPanel4";
 //            this.Viewer.Dock = DockStyle.Fill;
             this.Viewer.Margin = new Padding(10);
             
@@ -775,7 +778,7 @@ namespace Tester
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 329);
 
-            this.Controls.Add(this._tableLayoutPanel);
+            this.Controls.Add(splitContainer);
 //            this.Controls.Add(this.tsFiles); //FATabStrip
             this.Controls.Add(this.splitter1);
 
@@ -820,6 +823,7 @@ namespace Tester
         private FarsiLibrary.Win.FATabStrip tsFiles;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.SaveFileDialog sfdMain;
         private System.Windows.Forms.OpenFileDialog ofdMain;
         private System.Windows.Forms.ContextMenuStrip cmMain;
@@ -878,7 +882,7 @@ namespace Tester
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel;
+        private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.WebBrowser Viewer;
     }
 }

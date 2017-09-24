@@ -110,7 +110,6 @@ namespace Tester
             this.msMain.SuspendLayout();
             this.ssMain.SuspendLayout();
             this.tsMain.SuspendLayout();
-            this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tsFiles)).BeginInit();
             this.cmMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectExplorer)).BeginInit();
@@ -541,6 +540,7 @@ namespace Tester
             // 
             this.Viewer.Name = "Viewer";
             this.Viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Viewer.Margin = new Padding(10);
             this.Viewer.DocumentText = "MY VIEWER";
             //
             // splitContainer
@@ -549,19 +549,13 @@ namespace Tester
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer.Location = new System.Drawing.Point(175, 349);
             this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-//            this.splitContainer.Size = new System.Drawing.Size(594, defHeight);
-            this.splitContainer.SplitterDistance = 125;
+            this.splitContainer.Size = new System.Drawing.Size(594, 750);
+            this.splitContainer.SplitterDistance = 425;
             this.splitContainer.SplitterWidth = 6;
             this.splitContainer.TabIndex = 0;
             this.splitContainer.Panel1.Controls.Add(tsFiles);
-            this.splitContainer.Panel1.Name = "splitterPanel3";
-
-            // This splitter panel contains the bottom ListView control.
             this.splitContainer.Panel2.Controls.Add(Viewer);
-            this.splitContainer.Panel2.Name = "splitterPanel4";
-//            this.Viewer.Dock = DockStyle.Fill;
-            this.Viewer.Margin = new Padding(10);
-            
+
             // 
             // splitter1
             // 

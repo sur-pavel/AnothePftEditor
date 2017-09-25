@@ -415,7 +415,7 @@ namespace FastColoredTextBoxNS
                 return;
             }
             //end of block if fi
-            if (Regex.IsMatch(args.LineText, @"\bfi\b"))
+            if (Regex.IsMatch(args.LineText, @"\bfi\b\w?"))
             {
                 args.Shift = -args.TabLength;
                 args.ShiftNextLines = -args.TabLength;

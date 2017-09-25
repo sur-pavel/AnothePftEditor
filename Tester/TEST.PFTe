@@ -1,0 +1,40 @@
+(if p(v910)then 
+    if '0 8 P':v910^a or 'C U':v910^a and v910^c<>'' then 
+        '5 ^a',
+        if v910^d:'~'then
+            &uf('G0'v910^d)
+            else &unifor('Korg.mnu|2')
+            fi,
+        if a(v910^b)or &uf('Av920#1'):'NJ'then
+            |^m|v910^h
+            else|^m|v910^b fi,
+        if v910^d:'~'then
+            if v910^d:'/'then
+                '^b' &uf('G0/'&uf('G2/'v910^d)),
+                if &uf('G2/'v910^d):'/'then
+                    '^c',&uf('G2/'&uf('G2/'v910^d))
+                fi,
+            fi
+            else |^b|v910^d fi ,
+        if v910^r<>''then |^j|v910^r
+            else
+            if   &unifor('Av903#1'):&unifor('Av908#1')and &uf('Av906#1')='' or &unifor('Av920#1'):'asp'then
+                else
+                if &unifor('Av903#1'):&unifor('Av906#1')then
+                    '^j'&unifor('Av906#1'),else
+                    if &unifor('Av906#1')=''or v910=&unifor('Av910#1')then
+                        '^j'&unifor('Av903#1')else
+                        if &unifor('Av906#1')<>''then
+                            '^j'&unifor('Av906#1')
+                            fi
+                        fi
+                    fi
+                fi
+            fi,
+        if &uf('Av920#1'):'NJ'then
+            |^t|v910^bfi,
+            if &unifor('Korg.mnu|1')<>''then
+            '^p'&unifor('Korg.mnu|1')
+            fi,
+        fi 
+    fi/)

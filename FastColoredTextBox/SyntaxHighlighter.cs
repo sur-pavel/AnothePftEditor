@@ -407,6 +407,19 @@ namespace FastColoredTextBoxNS
                 args.ShiftNextLines = -args.TabLength;
                 return;
             }
+            //start of block if fi
+            if (Regex.IsMatch(args.LineText, @"\b(then)\b"))
+            {
+                args.ShiftNextLines = args.TabLength;
+                return;
+            }
+            //end of block if fi
+            if (Regex.IsMatch(args.LineText, @"\bfi\b"))
+            {
+                args.Shift = -args.TabLength;
+                args.ShiftNextLines = -args.TabLength;
+                return;
+            }
             //label
             if (Regex.IsMatch(args.LineText, @"^\s*\w+\s*:\s*($|//)") &&
                 !Regex.IsMatch(args.LineText, @"^\s*default\s*:"))
@@ -420,13 +433,18 @@ namespace FastColoredTextBoxNS
                 args.Shift = -args.TabLength / 2;
                 return;
             }
+            //Statements else, elseif, case etc
+            if (Regex.IsMatch(args.LineText, @"^\s*else\b", RegexOptions.IgnoreCase))
+            {
+                args.Shift = -args.TabLength;
+                return;
+            }
             //is unclosed operator in previous line ?
-            if (Regex.IsMatch(args.PrevLineText, @"^\s*(if|for|foreach|while|[\}\s]*else)\b[^{]*$"))
-                if (!Regex.IsMatch(args.PrevLineText, @"(;\s*$)|(;\s*//)")) //operator is unclosed
-                {
+            if (Regex.IsMatch(args.PrevLineText, @"^\s*(if)\b"))
+                
                     args.Shift = args.TabLength;
                     return;
-                }
+                
         }
         
 

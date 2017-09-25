@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Tester
@@ -66,11 +69,23 @@ namespace Tester
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.undoStripButton = new System.Windows.Forms.ToolStripButton();
             this.redoStripButton = new System.Windows.Forms.ToolStripButton();
+            this.goButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.backStripButton = new System.Windows.Forms.ToolStripButton();
             this.forwardStripButton = new System.Windows.Forms.ToolStripButton();
             this.tbFind = new System.Windows.Forms.ToolStripTextBox();
             this.Viewer = new System.Windows.Forms.WebBrowser();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this._outputTabControl = new System.Windows.Forms.TabControl();
+            this._plainTextPage = new System.Windows.Forms.TabPage();
+            this._resutlBox = new System.Windows.Forms.TextBox();
+            this._rtfPage = new System.Windows.Forms.TabPage();
+            this._rtfBox = new System.Windows.Forms.RichTextBox();
+            this._htmlPage = new System.Windows.Forms.TabPage();
+            this._htmlBox = new System.Windows.Forms.WebBrowser();
+            this._warningPage = new System.Windows.Forms.TabPage();
+            this._warningBox = new System.Windows.Forms.TextBox();
+            this._recordBox = new System.Windows.Forms.TextBox();
             this.splitContainer = new SplitContainer();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -286,8 +301,8 @@ namespace Tester
             this.toolStripLabel1,
             this.toolStripSeparator6,
             this.bookmarkPlusButton,
-            this.bookmarkMinusButton
-                
+            this.bookmarkMinusButton,
+                this.goButton
                 ,
             this.gotoButton 
             });
@@ -434,6 +449,16 @@ namespace Tester
             this.redoStripButton.Text = "Redo (Ctrl+R)";
             this.redoStripButton.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
+            // goButton
+            // 
+            this.goButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.goButton.Image = ((System.Drawing.Image)(resources.GetObject("_goButton.Image")));
+            this.goButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(23, 22);
+            this.goButton.Text = "Go (F5)";
+            this.goButton.Click += new System.EventHandler(this._goButton_Click);
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -535,6 +560,128 @@ namespace Tester
             this.tsFiles.Text = "faTabStrip1";
             this.tsFiles.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
             this.tsFiles.TabStripItemSelectionChanged += new FarsiLibrary.Win.TabStripItemChangedHandler(this.tsFiles_TabStripItemSelectionChanged);
+            //
+            // _outputTabControl
+            //
+            this._outputTabControl.Controls.Add(this._plainTextPage);
+            this._outputTabControl.Controls.Add(this._rtfPage);
+            this._outputTabControl.Controls.Add(this._htmlPage);
+            this._outputTabControl.Controls.Add(this._warningPage);
+            this._outputTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._outputTabControl.Location = new System.Drawing.Point(0, 0);
+            this._outputTabControl.Margin = new System.Windows.Forms.Padding(2);
+            this._outputTabControl.Name = "_outputTabControl";
+            this._outputTabControl.SelectedIndex = 0;
+            this._outputTabControl.Size = new System.Drawing.Size(380, 300);
+            this._outputTabControl.TabIndex = 1;
+            //
+            // _plainTextPage
+            //
+            this._plainTextPage.Controls.Add(this._resutlBox);
+            this._plainTextPage.Location = new System.Drawing.Point(4, 22);
+            this._plainTextPage.Margin = new System.Windows.Forms.Padding(2);
+            this._plainTextPage.Name = "_plainTextPage";
+            this._plainTextPage.Padding = new System.Windows.Forms.Padding(2);
+            this._plainTextPage.Size = new System.Drawing.Size(372, 274);
+            this._plainTextPage.TabIndex = 0;
+            this._plainTextPage.Text = "Plain text";
+            this._plainTextPage.UseVisualStyleBackColor = true;
+            //
+            // _resutlBox
+            //
+            this._resutlBox.BackColor = System.Drawing.SystemColors.Window;
+            this._resutlBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._resutlBox.Location = new System.Drawing.Point(2, 2);
+            this._resutlBox.Multiline = true;
+            this._resutlBox.Name = "_resutlBox";
+            this._resutlBox.ReadOnly = true;
+            this._resutlBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._resutlBox.Size = new System.Drawing.Size(368, 270);
+            this._resutlBox.TabIndex = 0;
+            //
+            // _rtfPage
+            //
+            this._rtfPage.Controls.Add(this._rtfBox);
+            this._rtfPage.Location = new System.Drawing.Point(4, 22);
+            this._rtfPage.Margin = new System.Windows.Forms.Padding(2);
+            this._rtfPage.Name = "_rtfPage";
+            this._rtfPage.Padding = new System.Windows.Forms.Padding(2);
+            this._rtfPage.Size = new System.Drawing.Size(372, 274);
+            this._rtfPage.TabIndex = 1;
+            this._rtfPage.Text = "RTF";
+            this._rtfPage.UseVisualStyleBackColor = true;
+            //
+            // _rtfBox
+            //
+            this._rtfBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._rtfBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._rtfBox.Location = new System.Drawing.Point(2, 2);
+            this._rtfBox.Margin = new System.Windows.Forms.Padding(2);
+            this._rtfBox.Name = "_rtfBox";
+            this._rtfBox.Size = new System.Drawing.Size(368, 270);
+            this._rtfBox.TabIndex = 0;
+            this._rtfBox.Text = "";
+            //
+            // _htmlPage
+            //
+            this._htmlPage.Controls.Add(this._htmlBox);
+            this._htmlPage.Location = new System.Drawing.Point(4, 22);
+            this._htmlPage.Margin = new System.Windows.Forms.Padding(2);
+            this._htmlPage.Name = "_htmlPage";
+            this._htmlPage.Padding = new System.Windows.Forms.Padding(2);
+            this._htmlPage.Size = new System.Drawing.Size(372, 274);
+            this._htmlPage.TabIndex = 2;
+            this._htmlPage.Text = "HTML";
+            this._htmlPage.UseVisualStyleBackColor = true;
+            //
+            // _htmlBox
+            //
+            this._htmlBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._htmlBox.Location = new System.Drawing.Point(2, 2);
+            this._htmlBox.Margin = new System.Windows.Forms.Padding(2);
+            this._htmlBox.MinimumSize = new System.Drawing.Size(15, 16);
+            this._htmlBox.Name = "_htmlBox";
+            this._htmlBox.Size = new System.Drawing.Size(368, 270);
+            this._htmlBox.TabIndex = 0;
+            //
+            // _warningPage
+            //
+            this._warningPage.Controls.Add(this._warningBox);
+            this._warningPage.Location = new System.Drawing.Point(4, 22);
+            this._warningPage.Margin = new System.Windows.Forms.Padding(2);
+            this._warningPage.Name = "_warningPage";
+            this._warningPage.Padding = new System.Windows.Forms.Padding(2);
+            this._warningPage.Size = new System.Drawing.Size(372, 274);
+            this._warningPage.TabIndex = 3;
+            this._warningPage.Text = "Warnings";
+            this._warningPage.UseVisualStyleBackColor = true;
+            //
+            // _warningBox
+            //
+            this._warningBox.BackColor = System.Drawing.SystemColors.Window;
+            this._warningBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._warningBox.Location = new System.Drawing.Point(2, 2);
+            this._warningBox.Margin = new System.Windows.Forms.Padding(2);
+            this._warningBox.Multiline = true;
+            this._warningBox.Name = "_warningBox";
+            this._warningBox.ReadOnly = true;
+            this._warningBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this._warningBox.Size = new System.Drawing.Size(368, 270);
+            this._warningBox.TabIndex = 0;
+            //
+            // _recordBox
+            //
+            this._recordBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._recordBox.Location = new System.Drawing.Point(0, 0);
+            this._recordBox.Multiline = true;
+            this._recordBox.Name = "_recordBox";
+            this._recordBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._recordBox.Size = new System.Drawing.Size(370, 300);
+            this._recordBox.TabIndex = 0;
+            string fileName = "PAZK.TXT";
+            string path = Path.Combine(Environment.CurrentDirectory, fileName);
+            string[] strings = File.ReadAllText(path,Encoding.Default).Split('#');
+            this._recordBox.Text = File.ReadAllText(path,Encoding.Default);
             // 
             // Viewer
             // 
@@ -542,6 +689,23 @@ namespace Tester
             this.Viewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Viewer.Margin = new Padding(10);
             this.Viewer.DocumentText = "MY VIEWER";
+            //
+            // splitContainer2
+            //
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            //
+            // splitContainer2.Panel1
+            //
+            this.splitContainer2.Panel1.Controls.Add(this._recordBox);
+            //
+            // splitContainer2.Panel2
+            //
+            this.splitContainer2.Panel2.Controls.Add(this._outputTabControl);
+            this.splitContainer2.Size = new System.Drawing.Size(754, 300);
+            this.splitContainer2.SplitterDistance = 370;
+            this.splitContainer2.TabIndex = 0;
             //
             // splitContainer
             //
@@ -554,7 +718,7 @@ namespace Tester
             this.splitContainer.SplitterWidth = 6;
             this.splitContainer.TabIndex = 0;
             this.splitContainer.Panel1.Controls.Add(tsFiles);
-            this.splitContainer.Panel2.Controls.Add(Viewer);
+            this.splitContainer.Panel2.Controls.Add(splitContainer2);
 
             // 
             // splitter1
@@ -567,13 +731,14 @@ namespace Tester
             // 
             // sfdMain
             // 
-            this.sfdMain.DefaultExt = "PFT";
-            this.sfdMain.Filter = "PFT file(*.PFT)|*.PFT";
+            this.sfdMain.DefaultExt = "PFTe";
+            
+            this.sfdMain.Filter = "PFT file(*.PFT)|*.PFT|PFT extended file (.PFTe)|*.PFTe";
             // 
             // ofdMain
             // 
-            this.ofdMain.DefaultExt = "PFT";
-            this.ofdMain.Filter = "PFT file(*.PFT)|*.PFT";
+            this.ofdMain.DefaultExt = "PFTe";
+            this.ofdMain.Filter = "PFT extended file (.PFTe)|*.PFTe|PFT file(*.PFT)|*.PFT";
             // 
             // cmMain
             // 
@@ -771,12 +936,15 @@ namespace Tester
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 329);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
+
 
             this.Controls.Add(splitContainer);
 //            this.Controls.Add(this.tsFiles); //FATabStrip
             this.Controls.Add(this.splitter1);
 
-            this.Controls.Add(this.dgvObjectExplorer);
+//            this.Controls.Add(this.dgvObjectExplorer);
 
             this.Controls.Add(this.tsMain); //ToolStrip with buttons
             this.Controls.Add(this.msMain); //Top MenuStrip
@@ -840,6 +1008,7 @@ namespace Tester
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton undoStripButton;
         private System.Windows.Forms.ToolStripButton redoStripButton;
+        private System.Windows.Forms.ToolStripButton goButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripTextBox tbFind;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -878,5 +1047,19 @@ namespace Tester
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.WebBrowser Viewer;
+        private System.Windows.Forms.TabControl _outputTabControl;
+        private System.Windows.Forms.TextBox _resutlBox;
+        private System.Windows.Forms.TabPage _plainTextPage;
+        private System.Windows.Forms.TabPage _rtfPage;
+        private System.Windows.Forms.TabPage _htmlPage;
+        private System.Windows.Forms.TabPage _warningPage;
+        private System.Windows.Forms.TextBox _warningBox;
+        private System.Windows.Forms.WebBrowser _htmlBox;
+        private System.Windows.Forms.RichTextBox _rtfBox;
+        private System.Windows.Forms.TextBox _recordBox;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+       
+
+
     }
 }

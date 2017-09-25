@@ -12,20 +12,51 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Drawing.Drawing2D;
+using AM;
+using IrbisUI.Pft;
+using ManagedIrbis;
+using ManagedIrbis.ImportExport;
+using ManagedIrbis.Pft;
+using ManagedIrbis.Pft.Infrastructure;
 
 namespace Tester
 {
     public partial class PowerfulCSharpEditor : Form
     {
-        string[] keywords = { "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class", "const", "continue", "decimal", "default", "delegate", "do", "double", "else", "enum", "event", "explicit", "extern", "false", "finally", "fixed", "float", "for", "foreach", "goto", "if", "implicit", "in", "int", "interface", "internal", "is", "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override", "params", "private", "protected", "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "stackalloc", "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint", "ulong", "unchecked", "unsafe", "ushort", "using", "virtual", "void", "volatile", "while", "add", "alias", "ascending", "descending", "dynamic", "from", "get", "global", "group", "into", "join", "let", "orderby", "partial", "remove", "select", "set", "value", "var", "where", "yield" };
-        string[] methods = { "&uf()", "GetHashCode()", "GetType()", "ToString()" };
-        string[] snippets = { "if ^ then\n \nfi\n", "if(^)\n{\n;\n}\nelse\n{\n;\n}", "for(^;;)\n{\n;\n}", "while(^)\n{\n;\n}", "do\n{\n^;\n}while();", "switch(^)\n{\ncase : break;\n}" };
-        string[] declarationSnippets = { 
-               "public class ^\n{\n}", "private class ^\n{\n}", "internal class ^\n{\n}",
-               "public struct ^\n{\n;\n}", "private struct ^\n{\n;\n}", "internal struct ^\n{\n;\n}",
-               "public void ^()\n{\n;\n}", "private void ^()\n{\n;\n}", "internal void ^()\n{\n;\n}", "protected void ^()\n{\n;\n}",
-               "public ^{ get; set; }", "private ^{ get; set; }", "internal ^{ get; set; }", "protected ^{ get; set; }"
-               };
+        private MarcRecord _record;
+        private PftTokenList _tokenList;
+        private PftProgram _program;
+
+        string[] keywords =
+        {
+            "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class", "const",
+            "continue", "decimal", "default", "delegate", "do", "double", "else", "enum", "event", "explicit", "extern",
+            "false", "float", "for", "foreach", "goto", "if", "implicit", "in", "int", "interface", "internal", "is",
+            "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override", "params", "private",
+            "protected", "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "stackalloc",
+            "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint", "ulong",
+            "unchecked", "unsafe", "ushort", "using", "virtual", "void", "volatile", "while", "add", "alias",
+            "ascending", "descending", "dynamic", "from", "get", "global", "group", "into", "join", "let", "orderby",
+            "partial", "remove", "select", "set", "value", "var", "where", "yield"
+        };
+
+        string[] methods = {"&uf()", "GetHashCode()", "GetType()", "ToString()"};
+
+        string[] snippets =
+        {
+            "if ^ then\n \nfi\n", "if(^)\n{\n;\n}\nelse\n{\n;\n}", "for(^;;)\n{\n;\n}", "while(^)\n{\n;\n}",
+            "do\n{\n^;\n}while();", "switch(^)\n{\ncase : break;\n}"
+        };
+
+        string[] declarationSnippets =
+        {
+            "public class ^\n{\n}", "private class ^\n{\n}", "internal class ^\n{\n}",
+            "public struct ^\n{\n;\n}", "private struct ^\n{\n;\n}", "internal struct ^\n{\n;\n}",
+            "public void ^()\n{\n;\n}", "private void ^()\n{\n;\n}", "internal void ^()\n{\n;\n}",
+            "protected void ^()\n{\n;\n}",
+            "public ^{ get; set; }", "private ^{ get; set; }", "internal ^{ get; set; }", "protected ^{ get; set; }"
+        };
+
         Style invisibleCharsStyle = new InvisibleCharsRenderer(Pens.Gray);
         Color currentLineColor = Color.FromArgb(100, 210, 210, 255);
         Color changedLineColor = Color.FromArgb(255, 230, 230, 255);
@@ -34,12 +65,14 @@ namespace Tester
         public PowerfulCSharpEditor()
         {
             InitializeComponent();
+                
 
             //init menu images
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PowerfulCSharpEditor));
-            copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
-            cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
-            pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripButton.Image")));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(PowerfulCSharpEditor));
+            copyToolStripMenuItem.Image = ((System.Drawing.Image) (resources.GetObject("copyToolStripButton.Image")));
+            cutToolStripMenuItem.Image = ((System.Drawing.Image) (resources.GetObject("cutToolStripButton.Image")));
+            pasteToolStripMenuItem.Image = ((System.Drawing.Image) (resources.GetObject("pasteToolStripButton.Image")));
         }
 
 
@@ -62,8 +95,8 @@ namespace Tester
                 //tb.VirtualSpace = true;
                 tb.LeftPadding = 17;
                 tb.Language = Language.Pft;
-                tb.AddStyle(sameWordsStyle);//same words style
-                var tab = new FATabStripItem(fileName!=null?Path.GetFileName(fileName):"[new]", tb);
+                tb.AddStyle(sameWordsStyle); //same words style
+                var tab = new FATabStripItem(fileName != null ? Path.GetFileName(fileName) : "[new]", tb);
                 tab.Tag = fileName;
                 if (fileName != null)
                     tb.OpenFile(fileName);
@@ -78,7 +111,7 @@ namespace Tester
                 tb.KeyDown += new KeyEventHandler(tb_KeyDown);
                 tb.MouseMove += new MouseEventHandler(tb_MouseMove);
                 tb.ChangedLineColor = changedLineColor;
-                if(btHighlightCurrentLine.Checked)
+                if (btHighlightCurrentLine.Checked)
                     tb.CurrentLineColor = currentLineColor;
                 tb.ShowFoldingLines = btShowFoldingLines.Checked;
                 tb.HighlightingRangeType = HighlightingRangeType.VisibleRange;
@@ -91,10 +124,131 @@ namespace Tester
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == System.Windows.Forms.DialogResult.Retry)
+                if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) ==
+                    System.Windows.Forms.DialogResult.Retry)
                     CreateTab(fileName);
             }
         }
+
+        private void Clear()
+        {
+            _resutlBox.Clear();
+            _rtfBox.Clear();
+            _htmlBox.DocumentText = string.Empty;
+            _warningBox.Clear();
+        }
+
+        private void Parse()
+        {
+            string recordText = _recordBox.Text;
+            StringReader reader = new StringReader(recordText);
+            _record = PlainText.ReadRecord(reader);
+
+
+            PftLexer lexer = new PftLexer();
+            _tokenList = lexer.Tokenize(CurrentTB.Text);
+
+
+            PftParser parser = new PftParser(_tokenList);
+            _program = parser.Parse();
+        }
+
+        private void Run()
+        {
+            PftFormatter formatter = new PftFormatter
+            {
+                Program = _program
+            };
+
+
+            string result = formatter.FormatRecord(_record);
+            _resutlBox.Text = result;
+            try
+            {
+                _rtfBox.Rtf = result;
+            }
+            catch
+            {
+                _rtfBox.Text = result;
+            }
+
+            if (ReferenceEquals(_htmlBox.Document, null))
+            {
+                _htmlBox.Navigate("about:blank");
+                while (_htmlBox.IsBusy)
+                {
+                    Application.DoEvents();
+                }
+            }
+            if (!ReferenceEquals(_htmlBox.Document, null))
+            {
+                _htmlBox.Document.Write(result);
+            }
+            try
+            {
+                _htmlBox.DocumentText =
+                    "<html>"
+                    + result
+                    + "</html>";
+            }
+            // ReSharper disable once EmptyGeneralCatchClause
+            catch
+            {
+                // Nothing to do
+            }
+
+
+            _warningBox.Text = formatter.Warning;
+        }
+
+        private void _goButton_Click
+        (
+            object sender,
+            EventArgs e
+        )
+        {
+            try
+            {
+                Clear();
+                Parse();
+                Run();
+            }
+            catch (Exception exception)
+            {
+                _resutlBox.Text = exception.ToString();
+            }
+        }
+
+
+        private void MainForm_PreviewKeyDown
+        (
+            object sender,
+            PreviewKeyDownEventArgs e
+        )
+        {
+            switch (e.KeyData)
+            {
+                case Keys.F5:
+                    _goButton_Click(sender, e);
+                    break;
+
+
+            }
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case Keys.F5:
+                    _goButton_Click(sender, e);
+                    e.Handled = true;
+                    break;
+
+
+            }
+        }
+
 
         void popupMenu_Opening(object sender, CancelEventArgs e)
         {
@@ -119,11 +273,11 @@ namespace Tester
             List<AutocompleteItem> items = new List<AutocompleteItem>();
 
             foreach (var item in snippets)
-                items.Add(new SnippetAutocompleteItem(item) { ImageIndex = 1 });
+                items.Add(new SnippetAutocompleteItem(item) {ImageIndex = 1});
             foreach (var item in declarationSnippets)
-                items.Add(new DeclarationSnippet(item) { ImageIndex = 0 });
+                items.Add(new DeclarationSnippet(item) {ImageIndex = 0});
             foreach (var item in methods)
-                items.Add(new MethodAutocompleteItem(item) { ImageIndex = 2 });
+                items.Add(new MethodAutocompleteItem(item) {ImageIndex = 2});
             foreach (var item in keywords)
                 items.Add(new AutocompleteItem(item));
 
@@ -154,7 +308,7 @@ namespace Tester
                 e.Handled = true;
             }
 
-            if (e.Modifiers == (Keys.Control|Keys.Shift) && e.KeyCode == Keys.OemMinus)
+            if (e.Modifiers == (Keys.Control | Keys.Shift) && e.KeyCode == Keys.OemMinus)
             {
                 NavigateForward();
                 e.Handled = true;
@@ -184,7 +338,7 @@ namespace Tester
             //highlight same words
             tb.VisibleRange.ClearStyle(sameWordsStyle);
             if (!tb.Selection.IsEmpty)
-                return;//user selected diapason
+                return; //user selected diapason
             //get fragment around caret
             var fragment = tb.Selection.GetFragment(@"\w");
             string text = fragment.Text;
@@ -204,7 +358,7 @@ namespace Tester
             //rebuild object explorer
             string text = (sender as FastColoredTextBox).Text;
             ThreadPool.QueueUserWorkItem(
-                (o)=>ReBuildObjectExplorer(text)
+                (o) => ReBuildObjectExplorer(text)
             );
 
             //show invisible chars
@@ -227,73 +381,83 @@ namespace Tester
                 List<ExplorerItem> list = new List<ExplorerItem>();
                 int lastClassIndex = -1;
                 //find classes, methods and properties
-                Regex regex = new Regex(@"^(?<range>[\w\s]+\b(class|struct|enum|interface)\s+[\w<>,\s]+)|^\s*(public|private|internal|protected)[^\n]+(\n?\s*{|;)?", RegexOptions.Multiline);
+                Regex regex =
+                    new Regex(
+                        @"^(?<range>[\w\s]+\b(class|struct|enum|interface)\s+[\w<>,\s]+)|^\s*(public|private|internal|protected)[^\n]+(\n?\s*{|;)?",
+                        RegexOptions.Multiline);
                 foreach (Match r in regex.Matches(text))
                     try
                     {
                         string s = r.Value;
-                        int i = s.IndexOfAny(new char[] { '=', '{', ';' });
+                        int i = s.IndexOfAny(new char[] {'=', '{', ';'});
                         if (i >= 0)
                             s = s.Substring(0, i);
                         s = s.Trim();
 
-                        var item = new ExplorerItem() { title = s, position = r.Index };
+                        var item = new ExplorerItem() {title = s, position = r.Index};
                         if (Regex.IsMatch(item.title, @"\b(class|struct|enum|interface)\b"))
                         {
                             item.title = item.title.Substring(item.title.LastIndexOf(' ')).Trim();
                             item.type = ExplorerItemType.Class;
-                            list.Sort(lastClassIndex + 1, list.Count - (lastClassIndex + 1), new ExplorerItemComparer());
+                            list.Sort(lastClassIndex + 1, list.Count - (lastClassIndex + 1),
+                                new ExplorerItemComparer());
                             lastClassIndex = list.Count;
                         }
+                        else if (item.title.Contains(" event "))
+                        {
+                            int ii = item.title.LastIndexOf(' ');
+                            item.title = item.title.Substring(ii).Trim();
+                            item.type = ExplorerItemType.Event;
+                        }
+                        else if (item.title.Contains("("))
+                        {
+                            var parts = item.title.Split('(');
+                            item.title = parts[0].Substring(parts[0].LastIndexOf(' ')).Trim() + "(" + parts[1];
+                            item.type = ExplorerItemType.Method;
+                        }
+                        else if (item.title.EndsWith("]"))
+                        {
+                            var parts = item.title.Split('[');
+                            if (parts.Length < 2) continue;
+                            item.title = parts[0].Substring(parts[0].LastIndexOf(' ')).Trim() + "[" + parts[1];
+                            item.type = ExplorerItemType.Method;
+                        }
                         else
-                            if (item.title.Contains(" event "))
-                            {
-                                int ii = item.title.LastIndexOf(' ');
-                                item.title = item.title.Substring(ii).Trim();
-                                item.type = ExplorerItemType.Event;
-                            }
-                            else
-                                if (item.title.Contains("("))
-                                {
-                                    var parts = item.title.Split('(');
-                                    item.title = parts[0].Substring(parts[0].LastIndexOf(' ')).Trim() + "(" + parts[1];
-                                    item.type = ExplorerItemType.Method;
-                                }
-                                else
-                                    if (item.title.EndsWith("]"))
-                                    {
-                                        var parts = item.title.Split('[');
-                                        if (parts.Length < 2) continue;
-                                        item.title = parts[0].Substring(parts[0].LastIndexOf(' ')).Trim() + "[" + parts[1];
-                                        item.type = ExplorerItemType.Method;
-                                    }
-                                    else
-                                    {
-                                        int ii = item.title.LastIndexOf(' ');
-                                        item.title = item.title.Substring(ii).Trim();
-                                        item.type = ExplorerItemType.Property;
-                                    }
+                        {
+                            int ii = item.title.LastIndexOf(' ');
+                            item.title = item.title.Substring(ii).Trim();
+                            item.type = ExplorerItemType.Property;
+                        }
                         list.Add(item);
                     }
-                    catch { ;}
+                    catch
+                    {
+                        ;
+                    }
 
                 list.Sort(lastClassIndex + 1, list.Count - (lastClassIndex + 1), new ExplorerItemComparer());
 
                 BeginInvoke(
                     new Action(() =>
-                        {
-                            explorerList = list;
-                            dgvObjectExplorer.RowCount = explorerList.Count;
-                            dgvObjectExplorer.Invalidate();
-                        })
+                    {
+                        explorerList = list;
+                        dgvObjectExplorer.RowCount = explorerList.Count;
+                        dgvObjectExplorer.Invalidate();
+                    })
                 );
             }
-            catch { ;}
+            catch
+            {
+                ;
+            }
         }
 
         enum ExplorerItemType
         {
-            Class, Method, Property, Event
+            Class,
+            Method,
+            Property,
+            Event
         }
 
         class ExplorerItem
@@ -315,14 +479,15 @@ namespace Tester
         {
             if ((e.Item.Controls[0] as FastColoredTextBox).IsChanged)
             {
-                switch(MessageBox.Show("Do you want save " + e.Item.Title + " ?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
+                switch (MessageBox.Show("Do you want save " + e.Item.Title + " ?", "Save",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
                         if (!Save(e.Item))
                             e.Cancel = true;
                         break;
                     case DialogResult.Cancel:
-                         e.Cancel = true;
+                        e.Cancel = true;
                         break;
                 }
             }
@@ -346,7 +511,8 @@ namespace Tester
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
+                if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) ==
+                    DialogResult.Retry)
                     return Save(tab);
                 else
                     return false;
@@ -370,11 +536,11 @@ namespace Tester
                 string oldFile = tsFiles.SelectedItem.Tag as string;
                 tsFiles.SelectedItem.Tag = null;
                 if (!Save(tsFiles.SelectedItem))
-                if(oldFile!=null)
-                {
-                    tsFiles.SelectedItem.Tag = oldFile;
-                    tsFiles.SelectedItem.Title = Path.GetFileName(oldFile);
-                }
+                    if (oldFile != null)
+                    {
+                        tsFiles.SelectedItem.Tag = oldFile;
+                        tsFiles.SelectedItem.Title = Path.GetFileName(oldFile);
+                    }
             }
         }
 
@@ -391,7 +557,8 @@ namespace Tester
 
         FastColoredTextBox CurrentTB
         {
-            get {
+            get
+            {
                 if (tsFiles.SelectedItem == null)
                     return null;
                 return (tsFiles.SelectedItem.Controls[0] as FastColoredTextBox);
@@ -440,7 +607,7 @@ namespace Tester
         {
             try
             {
-                if(CurrentTB != null && tsFiles.Items.Count>0)
+                if (CurrentTB != null && tsFiles.Items.Count > 0)
                 {
                     var tb = CurrentTB;
                     undoStripButton.Enabled = undoToolStripMenuItem.Enabled = tb.UndoEnabled;
@@ -449,7 +616,7 @@ namespace Tester
                     saveAsToolStripMenuItem.Enabled = true;
                     pasteToolStripButton.Enabled = pasteToolStripMenuItem.Enabled = true;
                     cutToolStripButton.Enabled = cutToolStripMenuItem.Enabled =
-                    copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = !tb.Selection.IsEmpty;
+                        copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = !tb.Selection.IsEmpty;
                     printToolStripButton.Enabled = true;
                 }
                 else
@@ -457,7 +624,7 @@ namespace Tester
                     saveToolStripButton.Enabled = saveToolStripMenuItem.Enabled = false;
                     saveAsToolStripMenuItem.Enabled = false;
                     cutToolStripButton.Enabled = cutToolStripMenuItem.Enabled =
-                    copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = false;
+                        copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = false;
                     pasteToolStripButton.Enabled = pasteToolStripMenuItem.Enabled = false;
                     printToolStripButton.Enabled = false;
                     undoStripButton.Enabled = undoToolStripMenuItem.Enabled = false;
@@ -473,7 +640,7 @@ namespace Tester
 
         private void printToolStripButton_Click(object sender, EventArgs e)
         {
-            if(CurrentTB!=null)
+            if (CurrentTB != null)
             {
                 var settings = new PrintDialogSettings();
                 settings.Title = tsFiles.SelectedItem.Title;
@@ -489,7 +656,7 @@ namespace Tester
         {
             if (e.KeyChar == '\r' && CurrentTB != null)
             {
-                Range r = tbFindChanged?CurrentTB.Range.Clone():CurrentTB.Selection.Clone();
+                Range r = tbFindChanged ? CurrentTB.Range.Clone() : CurrentTB.Selection.Clone();
                 tbFindChanged = false;
                 r.End = new Place(CurrentTB[CurrentTB.LinesCount - 1].Count, CurrentTB.LinesCount - 1);
                 var pattern = Regex.Escape(tbFind.Text);
@@ -519,7 +686,7 @@ namespace Tester
         private void PowerfulCSharpEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             List<FATabStripItem> list = new List<FATabStripItem>();
-            foreach (FATabStripItem tab in  tsFiles.Items)
+            foreach (FATabStripItem tab in tsFiles.Items)
                 list.Add(tab);
             foreach (var tab in list)
             {
@@ -570,7 +737,10 @@ namespace Tester
                             return;
                     }
             }
-            catch{;}
+            catch
+            {
+                ;
+            }
         }
 
         private void tsFiles_TabStripItemSelectionChanged(TabStripItemChangedEventArgs e)
@@ -718,10 +888,7 @@ namespace Tester
 
             public override string ToolTipTitle
             {
-                get
-                {
-                    return Text;
-                }
+                get { return Text; }
             }
         }
 
@@ -774,10 +941,7 @@ namespace Tester
 
             public override string ToolTipTitle
             {
-                get
-                {
-                    return "Insert line break after '}'";
-                }
+                get { return "Insert line break after '}'"; }
             }
         }
 
@@ -790,7 +954,7 @@ namespace Tester
         {
             foreach (FATabStripItem tab in tsFiles.Items)
                 HighlightInvisibleChars((tab.Controls[0] as FastColoredTextBox).Range);
-            if (CurrentTB!=null)
+            if (CurrentTB != null)
                 CurrentTB.Invalidate();
         }
 
@@ -847,9 +1011,10 @@ namespace Tester
             CurrentTB.EndAutoUndo();
         }
 
+
         private void bookmarkPlusButton_Click(object sender, EventArgs e)
         {
-            if(CurrentTB == null) 
+            if (CurrentTB == null)
                 return;
             CurrentTB.BookmarkLine(CurrentTB.Selection.Start.iLine);
         }
@@ -869,10 +1034,12 @@ namespace Tester
                 FastColoredTextBox tb = tab.Controls[0] as FastColoredTextBox;
                 foreach (var bookmark in tb.Bookmarks)
                 {
-                    var item = gotoButton.DropDownItems.Add(bookmark.Name + " [" + Path.GetFileNameWithoutExtension(tab.Tag as String) + "]");
+                    var item = gotoButton.DropDownItems.Add(
+                        bookmark.Name + " [" + Path.GetFileNameWithoutExtension(tab.Tag as String) + "]");
                     item.Tag = bookmark;
-                    item.Click += (o, a) => {
-                        var b = (Bookmark)(o as ToolStripItem).Tag;
+                    item.Click += (o, a) =>
+                    {
+                        var b = (Bookmark) (o as ToolStripItem).Tag;
                         try
                         {
                             CurrentTB = b.TB;
@@ -915,25 +1082,25 @@ namespace Tester
         public override void Draw(Graphics gr, Point position, Range range)
         {
             var tb = range.tb;
-            using(Brush brush = new SolidBrush(pen.Color))
-            foreach (var place in range)
-            {
-                switch (tb[place].c)
+            using (Brush brush = new SolidBrush(pen.Color))
+                foreach (var place in range)
                 {
-                    case ' ':
-                        var point = tb.PlaceToPoint(place);
-                        point.Offset(tb.CharWidth / 2, tb.CharHeight / 2);
-                        gr.DrawLine(pen, point.X, point.Y, point.X + 1, point.Y);
-                        break;
-                }
+                    switch (tb[place].c)
+                    {
+                        case ' ':
+                            var point = tb.PlaceToPoint(place);
+                            point.Offset(tb.CharWidth / 2, tb.CharHeight / 2);
+                            gr.DrawLine(pen, point.X, point.Y, point.X + 1, point.Y);
+                            break;
+                    }
 
-                if (tb[place.iLine].Count - 1 == place.iChar)
-                {
-                    var point = tb.PlaceToPoint(place);
-                    point.Offset(tb.CharWidth, 0);
-                    gr.DrawString("¶", tb.Font, brush, point);
+                    if (tb[place.iLine].Count - 1 == place.iChar)
+                    {
+                        var point = tb.PlaceToPoint(place);
+                        point.Offset(tb.CharWidth, 0);
+                        gr.DrawString("¶", tb.Font, brush, point);
+                    }
                 }
-            }
         }
     }
 

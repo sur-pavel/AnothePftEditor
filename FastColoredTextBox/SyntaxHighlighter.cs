@@ -408,8 +408,9 @@ namespace FastColoredTextBoxNS
                 return;
             }
             //start of block if fi
-            if (Regex.IsMatch(args.LineText, @"\b(then)\b"))
+            if (Regex.IsMatch(args.LineText, @"\bthen\b"))
             {
+                
                 args.ShiftNextLines = args.TabLength;
                 return;
             }
@@ -436,14 +437,10 @@ namespace FastColoredTextBoxNS
             //Statements else, elseif, case etc
             if (Regex.IsMatch(args.LineText, @"^\s*else\b", RegexOptions.IgnoreCase))
             {
-                args.Shift = -args.TabLength;
+                args.Shift = -args.TabLength/2;
                 return;
             }
             //is unclosed operator in previous line ?
-            if (Regex.IsMatch(args.PrevLineText, @"^\s*(if)\b"))
-                
-                    args.Shift = args.TabLength;
-                    return;
                 
         }
         

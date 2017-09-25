@@ -29,23 +29,15 @@ namespace Tester
 
         string[] keywords =
         {
-            "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class", "const",
-            "continue", "decimal", "default", "delegate", "do", "double", "else", "enum", "event", "explicit", "extern",
-            "false", "float", "for", "foreach", "goto", "if", "implicit", "in", "int", "interface", "internal", "is",
-            "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override", "params", "private",
-            "protected", "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "stackalloc",
-            "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint", "ulong",
-            "unchecked", "unsafe", "ushort", "using", "virtual", "void", "volatile", "while", "add", "alias",
-            "ascending", "descending", "dynamic", "from", "get", "global", "group", "into", "join", "let", "orderby",
-            "partial", "remove", "select", "set", "value", "var", "where", "yield"
+            "fi,", "and", "or", "uf", "unifor", "then", "else", "if"
         };
 
-        string[] methods = {"&uf()", "GetHashCode()", "GetType()", "ToString()"};
+        string[] methods = {"&uf()", "&unifor()"};
 
         string[] snippets =
         {
-            "if ^ then\n \nfi\n", "if(^)\n{\n;\n}\nelse\n{\n;\n}", "for(^;;)\n{\n;\n}", "while(^)\n{\n;\n}",
-            "do\n{\n^;\n}while();", "switch(^)\n{\ncase : break;\n}"
+            "if ^ then\n \nfi,\n",
+            "if ^ then\n \nelse\n \nfi,\n"
         };
 
         string[] declarationSnippets =

@@ -1,0 +1,2749 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IrbisUI</name>
+    </assembly>
+    <members>
+        <member name="T:IrbisUI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Properties.Resources.check">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.ChairComboBox">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.ChairComboBox.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.ChairComboBox.FillWithChairs(ManagedIrbis.IrbisConnection,System.Boolean)">
+            <summary>
+            Fill the combo box with chair list.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.ChairComboBox.FillWithPlaces(ManagedIrbis.IrbisConnection,System.Boolean)">
+            <summary>
+            Fill the combo box with places list.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.ChairComboBox.SelectedChair">
+            <summary>
+            Selected chair.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.DatabaseComboBox">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DatabaseComboBox.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DatabaseComboBox.FillWithDatabases(ManagedIrbis.IrbisConnection,System.String)">
+            <summary>
+            Fill the combo box with chair list.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.DatabaseComboBox.SelectedDatabase">
+            <summary>
+            Selected chair.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.DictionaryForm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DictionaryForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DictionaryForm.SetTerms(System.Collections.Generic.IEnumerable{ManagedIrbis.Search.TermInfo})">
+            <summary>
+            Set terms.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.DictionaryForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DictionaryForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.DictionaryForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.DictionaryForm.CurrentTerm">
+            <summary>
+            Current term.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.DictionaryForm.Terms">
+            <summary>
+            Terms.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.DictionaryPanel">
+            <summary>
+            Panel for dictionary entries.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DictionaryPanel.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DictionaryPanel.SetTerms(System.Collections.Generic.IEnumerable{ManagedIrbis.Search.TermInfo})">
+            <summary>
+            Set terms.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.DictionaryPanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.DictionaryPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.DictionaryPanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.DictionaryPanel.CurrentTerm">
+            <summary>
+            Current term.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.DictionaryPanel.Terms">
+            <summary>
+            Terms.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Editors.MenuEditor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Editors.MenuEditor.PerformEdit(ManagedIrbis.Worksheet.EditContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Editors.SimplestMarcEditor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Editors.SimplestMarcEditor.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Editors.SimplestMarcEditor.GetFields(ManagedIrbis.RecordFieldCollection)">
+            <summary>
+            Get the fields.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Editors.SimplestMarcEditor.SetFields(ManagedIrbis.RecordFieldCollection)">
+            <summary>
+            Set the fields.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Editors.SimplestMarcEditor.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Editors.SimplestMarcEditor.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.Editors.SimplestMarcEditor.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Editors.SimplestMarcEditor.ReadOnly">
+            <summary>
+            Whether the editor is read-only.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.FieldPainter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.FieldPainter.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.FieldPainter.#ctor(System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.FieldPainter.DrawLine(System.Drawing.Graphics,System.Drawing.Font,System.Drawing.PointF,System.String)">
+            <summary>
+            Draw line of field text.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.FieldPainter.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.FieldPainter.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.FieldPainter.CodeColor">
+            <summary>
+            Color of hat sign and code letter.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.FieldPainter.TextColor">
+            <summary>
+            Color of ordinary text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.FoundPanel">
+            <summary>
+            Grid with found documents list.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.FoundPanel.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.FoundPanel.SetFound(System.Collections.Generic.IEnumerable{ManagedIrbis.Search.FoundLine})">
+            <summary>
+            Set found lines.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.FoundPanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.FoundPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.FoundPanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.FoundPanel.Current">
+            <summary>
+            Current term.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.FoundPanel.Lines">
+            <summary>
+            Terms.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianDimensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDimensions.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDimensions.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDimensions.#ctor(System.Drawing.Size)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDimensions.ToSize">
+            <summary>
+            Convert to <see cref="T:System.Drawing.Size"/>.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDimensions.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianDimensions.Height">
+            <summary>
+            Height.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianDimensions.Width">
+            <summary>
+            Width.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundCheckCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCell.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCell.HandleClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <summary>
+            Handle <see cref="E:IrbisUI.Grid.SiberianCell.Click"/> event.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCell.HandleToolTip(IrbisUI.Grid.SiberianToolTipEventArgs)">
+            <summary>
+            Get tooltip for the cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCell.MeasureContent(IrbisUI.Grid.SiberianDimensions)">
+            <summary>
+            Measure content of the cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCell.CloseEditor(System.Boolean)">
+            <summary>
+            Close editor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCell.OnClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <summary>
+            Handles click on the cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw the cell.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.Grid.SiberianCell.Click">
+            <summary>
+            Fired on click.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.Grid.SiberianCell.Measure">
+            <summary>
+            Measure content.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.Grid.SiberianCell.ToolTip">
+            <summary>
+            Fired when tooltip needed.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianCell.Column">
+            <summary>
+            Column.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianCell.Grid">
+            <summary>
+            Grid.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianCell.Row">
+            <summary>
+            Row.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundCheckCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundCheckCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundCheckColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianColumn.DefaultFillWidth">
+            <summary>
+            Default fill width.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianColumn.DefaultWidth">
+            <summary>
+            Default width.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianColumn.DefaultMinWidth">
+            <summary>
+            Default minimal width.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.HandleClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <summary>
+            Handle <see cref="E:IrbisUI.Grid.SiberianColumn.Click"/> event.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.CreateCell">
+            <summary>
+            Create cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <summary>
+            Create editor for the cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.GetData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <summary>
+            Get data from the object and put it to the cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.Paint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw the column.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.OnClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <summary>
+            Handles click on the column.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.PaintHeader(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw the column header.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.PutData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <summary>
+            Get data from the cell and put it to the object.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianColumn.ToString">
+            <inheritdoc />
+        </member>
+        <member name="E:IrbisUI.Grid.SiberianColumn.Click">
+            <summary>
+            Fired on click.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.Index">
+            <summary>
+            Column index.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.Member">
+            <summary>
+            Data member (property name).
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.ReadOnly">
+            <summary>
+            Read only column?
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.Grid">
+            <summary>
+            Grid.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.Title">
+            <summary>
+            Title.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.FillWidth">
+            <summary>
+            Fill width.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.Width">
+            <summary>
+            Width, pixels.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.MinWidth">
+            <summary>
+            Minimal width of the column, pixels.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.Options">
+            <summary>
+            Options.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianColumn.Palette">
+            <summary>
+            Palette.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundCheckColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundCheckColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundDescriptionCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundDescriptionCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundDescriptionCell.HandleToolTip(IrbisUI.Grid.SiberianToolTipEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundDescriptionCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundDescriptionColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundDescriptionColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundDescriptionColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.IsInputKey(System.Windows.Forms.Keys)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnResize(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.CreateRow">
+            <summary>
+            Create row.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.CreateScrollBars">
+            <summary>
+            Create scroll bars.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.HandleNavigation(System.Int32@,System.Int32@)">
+            <summary>
+            Handle navigation (can cancel).
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.CloseEditor(System.Boolean)">
+            <summary>
+            Close current editor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.CountVisibleRows">
+            <summary>
+            Get count of visible rows.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.CreateColumn``1">
+            <summary>
+            Create column of specified type.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OpenEditor(System.Boolean,System.Object)">
+            <summary>
+            Open editor for current cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.CreateRow(System.Object)">
+            <summary>
+            Create row.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.FindCell(System.Int32,System.Int32)">
+            <summary>
+            Find cell under given mouse position.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.FindColumn(System.Int32)">
+            <summary>
+            Find column under given mouse position.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.FindRow(System.Int32)">
+            <summary>
+            Find row under given mouse position.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.GetCell(System.Int32,System.Int32)">
+            <summary>
+            Get cell for given column and row.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.GetCellRectangle(IrbisUI.Grid.SiberianCell)">
+            <summary>
+            Get cell rectangle.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.Goto(System.Int32,System.Int32)">
+            <summary>
+            Go to specified cell.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.MoveOneColumnLeft">
+            <summary>
+            Move one column left.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.MoveOneColumnRight">
+            <summary>
+            Move one column right.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.MoveOneLineDown">
+            <summary>
+            Move one row down.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.MoveOneLineUp">
+            <summary>
+            Move one row down.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.MoveOnePageDown">
+            <summary>
+            Move one page down.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.MoveOnePageUp">
+            <summary>
+            Move one page up.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.MoveRelative(System.Int32,System.Int32)">
+            <summary>
+            Relative movement.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianGrid.OnClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <summary>
+            Handles click on the cell.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.DefaultSize">
+            <inheritdoc />
+        </member>
+        <member name="E:IrbisUI.Grid.SiberianGrid.GridClick">
+            <summary>
+            Fired on click.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.Grid.SiberianGrid.Navigation">
+            <summary>
+            Fired on navigation.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.BackColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.ForeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.Columns">
+            <summary>
+            Columns.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.Rows">
+            <summary>
+            Rows.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.CurrentColumn">
+            <summary>
+            Current column.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.CurrentRow">
+            <summary>
+            Current row.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.CurrentCell">
+            <summary>
+            Current cell.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.ReadOnly">
+            <summary>
+            Whether the whole grid itself is read-only.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.Editor">
+            <summary>
+            Current editor (if any).
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.HeaderHeight">
+            <summary>
+            Header height.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.Palette">
+            <summary>
+            Palette.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.UsableSize">
+            <summary>
+            Usable size of the control.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianGrid.VisibleRows">
+            <summary>
+            Count of visible rows.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundGrid.Load(ManagedIrbis.Search.FoundLine[])">
+            <summary>
+            Use given WSS.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFoundGrid.MfnColumn">
+            <summary>
+            MFN.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFoundGrid.CheckColumn">
+            <summary>
+            Checkbox.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFoundGrid.IconColumn">
+            <summary>
+            Icon.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFoundGrid.DescriptionColumn">
+            <summary>
+            Description.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundIconCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundIconCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundIconCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundIconColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundIconColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundIconColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundMfnCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundMfnCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundMfnCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFoundMfnColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundMfnColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFoundMfnColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFoundMfnColumn.UseSerialNumber">
+            <summary>
+            Use <see cref="P:ManagedIrbis.Search.FoundLine.SerialNumber"/> instead
+            of <see cref="P:ManagedIrbis.Search.FoundLine.Mfn"/>.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianMeasureEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMeasureEventArgs.#ctor(IrbisUI.Grid.SiberianDimensions)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="dimensions"></param>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMeasureEventArgs.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianMeasureEventArgs.Dimensions">
+            <summary>
+            Dimensions.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianMenuCodeCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCodeCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCodeCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianButtonCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianButtonCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianButtonCell.Text">
+            <summary>
+            Text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianButtonColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianButtonColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianCheckCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCheckCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCheckCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianCheckCell.State">
+            <summary>
+            State.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianCheckCell.Text">
+            <summary>
+            Text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianCheckColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCheckColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCheckColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCheckColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCheckColumn.GetData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCheckColumn.PutData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianClickEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianClickEventArgs.Cell">
+            <summary>
+            Cell.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianClickEventArgs.Column">
+            <summary>
+            Column.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianClickEventArgs.Grid">
+            <summary>
+            Grid.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianClickEventArgs.Row">
+            <summary>
+            Row.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianCodeCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCodeCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCodeCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianCodeCell.Field">
+            <summary>
+            Field.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianCodeColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCodeColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianCodeColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianDateCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDateCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDateCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianDateCell.Date">
+            <summary>
+            Date.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianDateCell.Text">
+            <summary>
+            Text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianDateColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDateColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDateColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDateColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDateColumn.GetData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDateColumn.PutData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianDoubleCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDoubleCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDoubleCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianDoubleCell.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianDoubleColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDoubleColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDoubleColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDoubleColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDoubleColumn.GetData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianDoubleColumn.PutData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianField.FromWorksheetItem(ManagedIrbis.Worksheet.WorksheetItem)">
+            <summary>
+            Create <see cref="T:IrbisUI.Grid.SiberianField"/> from
+            <see cref="T:ManagedIrbis.Worksheet.WorksheetItem"/>.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Tag">
+            <summary>
+            Field tag.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Title">
+            <summary>
+            Title.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Repeat">
+            <summary>
+            Repeat.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Parent">
+            <summary>
+            Parent (first) field.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Repeatable">
+            <summary>
+            Whether the field is repeatable?
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.OriginalValue">
+            <summary>
+            Original value.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Mode">
+            <summary>
+            Editing mode?
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianField.Modified">
+            <summary>
+            Modified?
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFieldCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFieldColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianFieldGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldGrid.Load(ManagedIrbis.Worksheet.WorksheetPage,ManagedIrbis.MarcRecord)">
+            <summary>
+            Use given page.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianFieldGrid.CreateRow">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFieldGrid.FieldColumn">
+            <summary>
+            Column for field value.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFieldGrid.RepeatColumn">
+            <summary>
+            Column for repeat number.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianFieldGrid.TagColumn">
+            <summary>
+            Column for tag and title.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianImageCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianImageCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianImageCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianImageCell.Picture">
+            <summary>
+            Picture.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianImageCell.Text">
+            <summary>
+            Text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianImageColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianImageColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianImageColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianImageColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianImageColumn.GetData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianImageColumn.PutData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianIntegerCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianIntegerCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianIntegerCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianIntegerCell.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianIntegerColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianIntegerColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianIntegerColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianIntegerColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianIntegerColumn.GetData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianIntegerColumn.PutData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianMenuCodeColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCodeColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCodeColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianMenuCommentCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCommentCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCommentCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianMenuCommentColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCommentColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuCommentColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianMenuGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuGrid.Load(ManagedIrbis.Menus.MenuEntry[])">
+            <summary>
+            Use given WSS.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianMenuGrid.CreateRow">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianMenuGrid.CodeColumn">
+            <summary>
+            Column for menu code.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianMenuGrid.CommentColumn">
+            <summary>
+            Column for menu comment.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianNavigationEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianNavigationEventArgs.Cancel">
+            <summary>
+            Cancellation flag.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianNavigationEventArgs.NewColumn">
+            <summary>
+            New column number.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianNavigationEventArgs.NewRow">
+            <summary>
+            New row number.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianNavigationEventArgs.OldColumn">
+            <summary>
+            Old column number.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianNavigationEventArgs.OldRow">
+            <summary>
+            Old row number.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianOptions">
+            <summary>
+            Options for <see cref="T:IrbisUI.Grid.SiberianColumn"/>.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianOptions.Editable">
+            <summary>
+            Editable.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianOptions.Selectable">
+            <summary>
+            Selectable.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianOptions.Resizeable">
+            <summary>
+            Resizeable.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianOptions.CanGrowHorizontally">
+            <summary>
+            Can grow horizontally.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianOptions.CanShrinkHorizontally">
+            <summary>
+            Can shrink horizontally.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianOptions.CanGrowVertically">
+            <summary>
+            Can grow vertically.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianOptions.CanShrinkVertically">
+            <summary>
+            Can shrink vertically.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianPalette">
+            <summary>
+            Palette of UI colors.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianPalette.Clone">
+            <summary>
+            Clone the palette.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianPalette.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.BackColor">
+            <summary>
+            Background (non-selected) color.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.DisabledBackColor">
+            <summary>
+            Background color for disabled elements.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.DisabledForeColor">
+            <summary>
+            Foreground color for disabled elements.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.ForeColor">
+            <summary>
+            Foreground (non-selected) color.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.HeaderBackColor">
+            <summary>
+            Background color for header.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.HeaderForeColor">
+            <summary>
+            Foreground color for header.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.LineColor">
+            <summary>
+            Line color.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.Name">
+            <summary>
+            Name of the palette.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.SelectedBackColor">
+            <summary>
+            Selected background color.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.SelectedForeColor">
+            <summary>
+            Selected foreground color.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianPalette.DefaultPalette">
+            <summary>
+            Default palette.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianRepeatCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRepeatCell.HandleClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRepeatCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRepeatCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianRepeatColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRepeatColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRepeatColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianRow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianRow.DefaultHeight">
+            <summary>
+            Default height.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.HandleClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <summary>
+            Handle <see cref="E:IrbisUI.Grid.SiberianRow.Click"/> event.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.GetData">
+            <summary>
+            Get data from the bound object
+            and put it to the cells.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.GetFirstEditableCell">
+            <summary>
+            Get first editable cell in the row.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.MeasureCells">
+            <summary>
+            Measure cells.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.OnClick(IrbisUI.Grid.SiberianClickEventArgs)">
+            <summary>
+            Handles click on the row.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.Paint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw the column.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.PutData">
+            <summary>
+            Get data from the cells
+            and put it to the bound object.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianRow.ToString">
+            <inheritdoc />
+        </member>
+        <member name="E:IrbisUI.Grid.SiberianRow.Click">
+            <summary>
+            Fired on click.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianRow.Index">
+            <summary>
+            Index.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianRow.Data">
+            <summary>
+            Data.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianRow.Grid">
+            <summary>
+            Grid.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianRow.Cells">
+            <summary>
+            Cells.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianRow.Height">
+            <summary>
+            Height.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianSubField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubField.FromWorksheetItem(ManagedIrbis.Worksheet.WorksheetItem)">
+            <summary>
+            Create <see cref="T:IrbisUI.Grid.SiberianSubField"/> from
+            <see cref="T:ManagedIrbis.Worksheet.WorksheetItem"/>.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubField.Code">
+            <summary>
+            Subfield code.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubField.Title">
+            <summary>
+            Title.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubField.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubField.OriginalValue">
+            <summary>
+            Original value.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubField.Mode">
+            <summary>
+            Editing mode?
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubField.Modified">
+            <summary>
+            Modified?
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianSubFieldCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianSubFieldColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianSubFieldGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldGrid.Load(ManagedIrbis.Worksheet.WssFile,ManagedIrbis.RecordField)">
+            <summary>
+            Use given WSS.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianSubFieldGrid.CreateRow">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubFieldGrid.SubFieldColumn">
+            <summary>
+            Column for field value.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianSubFieldGrid.CodeColumn">
+            <summary>
+            Column for code and title.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTab">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTab.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianTab.Title">
+            <summary>
+            Tab title.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianTab.Fields">
+            <summary>
+            Fields.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianTab.Modified">
+            <summary>
+            Modified?
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTagCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTagCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTagCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTagColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTagColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTagColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTermCountCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermCountCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermCountCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTermCountColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermCountColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermCountColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTermGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermGrid.Load(ManagedIrbis.Search.TermInfo[])">
+            <summary>
+            Load given terms.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianTermGrid.CountColumn">
+            <summary>
+            Column for term count.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianTermGrid.TextColumn">
+            <summary>
+            Column for term text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTermTextCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermTextCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermTextCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTermTextColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermTextColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTermTextColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTextCell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextCell.CloseEditor(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextCell.Paint(System.Windows.Forms.PaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextCell.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianTextCell.Text">
+            <summary>
+            Text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianTextColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextColumn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextColumn.CreateCell">
+            <inheritdoc/>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextColumn.CreateEditor(IrbisUI.Grid.SiberianCell,System.Boolean,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextColumn.GetData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianTextColumn.PutData(System.Object,IrbisUI.Grid.SiberianCell)">
+            <inheritdoc />
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianToolTipEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianToolTipEventArgs.X">
+            <summary>
+            X coordinate.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Grid.SiberianToolTipEventArgs.Y">
+            <summary>
+            Y coordinate.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianToolTipEventArgs.Grid">
+            <summary>
+            Grid.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Grid.SiberianToolTipEventArgs.ToolTipText">
+            <summary>
+            ToolTip text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Grid.SiberianUtility">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Grid.SiberianUtility.MeasureText(IrbisUI.Grid.SiberianGrid,System.String,IrbisUI.Grid.SiberianDimensions)">
+            <summary>
+            Measure given cell text.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisBusyForm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyForm.SetTitle(System.String)">
+            <summary>
+            Set form title.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyForm.SetMessage(System.String)">
+            <summary>
+            Set form message.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.IrbisBusyForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.IrbisBusyForm.BreakPressed">
+            <summary>
+            Break button pressed.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisBusyManager">
+            <summary>
+            Управляет отображением окна "ИРБИС занят, подождите".
+            </summary>
+        </member>
+        <member name="F:IrbisUI.IrbisBusyManager.DelayConstant">
+            <summary>
+            Default delay, milliseconds.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.IrbisBusyManager.DefaultDelay">
+            <summary>
+            Значение задержки по умолчанию.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyManager.#ctor(ManagedIrbis.IrbisConnection)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyManager._ThreadMethod1">
+            <summary>
+            Выполняется в отдельном потоке.
+            Обратите внимание: созданная форма имеет
+            отдельную очередь сообщений, поэтому не блокируется.
+            Основной пользовательский интерфейс при этом
+            может блокироваться клиентом.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyManager.SetTitle(System.String)">
+            <summary>
+            Установка заголовка окна.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyManager.SetMessage(System.String)">
+            <summary>
+            Установка надписи на форме.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyManager.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="P:IrbisUI.IrbisBusyManager.Busy">
+            <summary>
+            Занят ли сейчас клиент обращением к ИРБИС-серверу.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisBusyManager.Connection">
+            <summary>
+            Ссылка на клиент.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisBusyManager.Delay">
+            <summary>
+            Задержка между началом запроса к серверу
+            и появлением окна "Ждите", миллисекунды.
+            Нулевое или отрицательное значение - нет задержки.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisBusyStripe">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyStripe.SubscribeTo(ManagedIrbis.IrbisConnection)">
+            <summary>
+            Subscribe to the connection busy state.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisBusyStripe.UnsubscribeFrom(ManagedIrbis.IrbisConnection)">
+            <summary>
+            Unsubscribe from the connection
+            busy state.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisCredentialsForm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisCredentialsForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.IrbisCredentialsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisCredentialsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.IrbisCredentialsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisCredentialsForm.Server">
+            <summary>
+            Server.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisCredentialsForm.Port">
+            <summary>
+            Port.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisCredentialsForm.User">
+            <summary>
+            User.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisCredentialsForm.Password">
+            <summary>
+            Password.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisIdleManager">
+            <summary>
+            Sends NOP command to the server.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisIdleManager.#ctor(ManagedIrbis.IrbisConnection,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisIdleManager.Raise">
+            <summary>
+            Manually raise <see cref="E:IrbisUI.IrbisIdleManager.Idle"/> event.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisIdleManager.Dispose">
+            <inheritdoc cref="M:System.IDisposable.Dispose"/>
+        </member>
+        <member name="E:IrbisUI.IrbisIdleManager.Idle">
+            <summary>
+            Raised when connection is idle.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisIdleManager.Connection">
+            <summary>
+            Connection.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisIdleManager.Interval">
+            <summary>
+            Idle interval, milliseconds.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisLoginCenter">
+            <summary>
+            Вход в ИРБИС.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginCenter.Login(ManagedIrbis.IrbisConnection,System.Windows.Forms.IWin32Window)">
+            <summary>
+            Простой вход в сервер.
+            </summary>
+            <param name="connection"></param>
+            <param name="owner"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginCenter.Login2(ManagedIrbis.IrbisConnection,System.Windows.Forms.IWin32Window)">
+            <summary>
+            Вход в сервер с указанием адреса.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginCenter.TryLogin(ManagedIrbis.IrbisConnection,System.Windows.Forms.IWin32Window)">
+            <summary>
+            Try to login.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginCenter.TryLogin2(ManagedIrbis.IrbisConnection,System.Windows.Forms.IWin32Window)">
+            <summary>
+            Try to login with host name.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisLoginForm">
+            <summary>
+            Окно с вводом логина и пароля для входа в ИРБИС.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm.ApplySettings(ManagedIrbis.ConnectionSettings)">
+            <summary>
+            Apply the <see cref="T:ManagedIrbis.ConnectionSettings"/>.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm.GatherSettings">
+            <summary>
+            Convert to <see cref="T:ManagedIrbis.ConnectionSettings"/>.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.IrbisLoginForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisLoginForm.Username">
+            <summary>
+            Логин.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisLoginForm.Password">
+            <summary>
+            Пароль.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisLoginForm2">
+            <summary>
+            Окно с вводом адреса сервера, логина 
+            и пароля для входа в ИРБИС.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm2.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm2.ApplySettings(ManagedIrbis.ConnectionSettings)">
+            <summary>
+            Apply the <see cref="T:ManagedIrbis.ConnectionSettings"/>.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm2.GatherSettings">
+            <summary>
+            Convert to <see cref="T:ManagedIrbis.ConnectionSettings"/>.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.IrbisLoginForm2.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm2.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.IrbisLoginForm2.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisLoginForm2.Host">
+            <summary>
+            Адрес сервера.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisLoginForm2.Port">
+            <summary>
+            Порт для подключения.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisLoginForm2.Username">
+            <summary>
+            Логин.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.IrbisLoginForm2.Password">
+            <summary>
+            Пароль.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.MenuForm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MenuForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MenuForm.SetEntries(ManagedIrbis.Menus.MenuEntry[])">
+            <summary>
+            Set entries.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.MenuForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MenuForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.MenuForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.MenuForm.CurrentEntry">
+            <summary>
+            Current menu entry.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.MenuForm.Entries">
+            <summary>
+            Entries
+            </summary>
+        </member>
+        <member name="T:IrbisUI.IrbisUIUtility">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.IrbisUIUtility.SetupRetryForm(ManagedIrbis.IrbisConnection)">
+            <summary>
+            Setup retry form for the connection.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.MagazineListBox">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MagazineListBox.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MagazineListBox.LoadMagazines(ManagedIrbis.IrbisConnection)">
+            <summary>
+            Load all magazines from database.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MagazineListBox.LoadMagazines(ManagedIrbis.Magazines.MagazineManager)">
+            <summary>
+            Load all magazines from database.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MagazineListBox.SetMagazines(System.Collections.Generic.IEnumerable{ManagedIrbis.Magazines.MagazineInfo})">
+            <summary>
+            Set list of magazines.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.MagazineListBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.MagazineListBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.MagazineListBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.MagazineListBox.SelectedMagazineChanged">
+            <summary>
+            Fired when selected magazine changed.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.MagazineListBox.SelectedMagazine">
+            <summary>
+            Selected magazine.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.PftEditorControl">
+            <summary>
+            Editor for PFT/FST.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftEditorControl.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.PftGlobalGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftGlobalGrid.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftGlobalGrid.Clear">
+            <summary>
+            Clear.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftGlobalGrid.SetGlobals(ManagedIrbis.Pft.Infrastructure.PftGlobalManager)">
+            <summary>
+            Set globals.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.PftGlobalGrid.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftGlobalGrid.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.PftGlobalGrid.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.PftTokenGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTokenGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTokenGrid.Clear">
+            <summary>
+            Clear.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTokenGrid.SetTokens(ManagedIrbis.Pft.Infrastructure.PftTokenList)">
+            <summary>
+            Set tokens.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.PftTokenGrid.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTokenGrid.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.PftTokenGrid.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.PftTokenGrid.CellDoubleClick">
+            <summary>
+            Cell double click.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.PftTokenGrid.SelectedToken">
+            <summary>
+            Selected token.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.PftTreeView">
+            <summary>
+            TreeView over <see cref="T:ManagedIrbis.Pft.Infrastructure.PftNode"/>'s
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTreeView.#ctor">
+            <summary>
+            Construction.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTreeView.Clear">
+            <summary>
+            Clear.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTreeView.SetNodes(ManagedIrbis.Pft.Infrastructure.PftNode)">
+            <summary>
+            Set nodes.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.PftTreeView.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftTreeView.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.PftTreeView.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.PftTreeView.CurrentNodeChanged">
+            <summary>
+            Fired when current node changed.
+            </summary>
+        </member>
+        <member name="E:IrbisUI.PftTreeView.NodeChecked">
+            <summary>
+            Fired when node check state changed.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.PftTreeView.CurrentNode">
+            <summary>
+            Current node.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.PftVariableGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftVariableGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftVariableGrid.Clear">
+            <summary>
+            Clear.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftVariableGrid.SetVariables(ManagedIrbis.Pft.Infrastructure.PftVariableManager)">
+            <summary>
+            Set variables.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.PftVariableGrid.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PftVariableGrid.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.PftVariableGrid.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Pft.PftDebuggerForm">
+            <summary>
+            Form for PFT debugger.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Pft.PftDebuggerForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.Pft.PftDebuggerForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Pft.PftDebuggerForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.Pft.PftDebuggerForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Pft.PftUiDebugger">
+            <summary>
+            PFT debugger for WinForms.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Pft.PftUiDebugger.#ctor(ManagedIrbis.Pft.Infrastructure.PftContext)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.Pft.PftUiDebugger.Activate(ManagedIrbis.Pft.Infrastructure.PftDebugEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:IrbisUI.Pft.PftUiDebugger.Form">
+            <summary>
+            Form.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.PreviewPanel">
+            <summary>
+            Preview documents.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PreviewPanel.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PreviewPanel.SetHtmlText(System.String)">
+            <summary>
+            Set HTML text in the preview pane.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PreviewPanel.SetPlainText(System.String)">
+            <summary>
+            Set plain text in the preview pane.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PreviewPanel.SetRichText(System.String)">
+            <summary>
+            Set rich text in the preview pane.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PreviewPanel.SetText(System.String)">
+            <summary>
+            Set text to preview pane.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.PreviewPanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.PreviewPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.PreviewPanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.RecordViewGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.RecordViewGrid.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.RecordViewGrid.Clear">
+            <summary>
+            Clear.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.RecordViewGrid.SetRecord(ManagedIrbis.MarcRecord)">
+            <summary>
+            Set record to view.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.RecordViewGrid.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.RecordViewGrid.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.RecordViewGrid.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.RelatedSearchForm">
+            <summary>
+            Related search.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.RelatedSearchForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.RelatedSearchForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.RelatedSearchForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.RelatedSearchForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.Sources.WorksheetLine">
+            <summary>
+            Single line in the worksheet.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Sources.WorksheetLine.Schema">
+            <summary>
+            Schema.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Sources.WorksheetLine.Title">
+            <summary>
+            Title.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.Sources.WorksheetLine.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="T:IrbisUI.WssForm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IrbisUI.WssForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:IrbisUI.WssForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IrbisUI.WssForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IrbisUI.WssForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.WssForm.CurrentTerm">
+            <summary>
+            Current term.
+            </summary>
+        </member>
+        <member name="P:IrbisUI.WssForm.Lines">
+            <summary>
+            Terms.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1421 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ManagedIrbis.Isis</name>
+    </assembly>
+    <members>
+        <member name="T:ManagedIrbis.Isis.Isis32Dll">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ManagedIrbis.Isis.Isis32Dll.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:ManagedIrbis.Isis.Isis32Dll.Dispose">
+            <inheritdoc cref="M:System.IDisposable.Dispose"/>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.AppHandle">
+            <summary>
+            ISIS application handle.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.FstFileName">
+            <summary>
+            FST file name.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.InvertedFileName">
+            <summary>
+            Name of the inverted file.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.MasterFileName">
+            <summary>
+            Name of the master file.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.PftFileName">
+            <summary>
+            PFT file name.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.ShelfNumber">
+            <summary>
+            Shelf number.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.SpaceHandle">
+            <summary>
+            ISIS space handle.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Isis32Dll.Version">
+            <summary>
+            Get version of the ISIS32.DLL.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisDebugFlags">
+            <summary>
+            Флаги отладки ISIS32.DLL.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.SHOW_NEVER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.SHOW_FATAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.SHOW_ALWAYS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.EXIT_NEVER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.EXIT_FATAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.EXIT_ALWAYS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.DEBUG_VERY_LIGHT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.DEBUG_LIGHT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.DEBUG_HARD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisDebugFlags.DEBUG_VERY_HARD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisErrorCodes">
+            <summary>
+            Error codes for ISIS32.DLL.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ZERO">
+            <summary>
+            No errors.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.NO_ERROR">
+            <summary>
+            No errors.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.NO_ERRORS">
+            <summary>
+            No errors.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_DBDELOCK">
+            <summary>
+            Database access denied (data entry lock).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_DBEWLOCK">
+            <summary>
+            Database access denied (probably exclusive write lock).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_DBMONOUSR">
+            <summary>
+            Database access is single-user.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_DBMULTUSR">
+            <summary>
+            Database access is multi-user.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILECREATE">
+            <summary>
+            File create error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEDELETE">
+            <summary>
+            File delete error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEEMPTY">
+            <summary>
+            File empty.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEFLUSH">
+            <summary>
+            File flush error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEFMT">
+            <summary>
+            File doesn't exist (fmt).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEFST">
+            <summary>
+            File doesn't exist (fst).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEINVERT">
+            <summary>
+            File doesn't exist (inverted).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEISO">
+            <summary>
+            File doesn't exist (ISO).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEMASTER">
+            <summary>
+            File doesn't exist (master).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEMISSING">
+            <summary>
+            File missing.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEOPEN">
+            <summary>
+            File open error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEPFT">
+            <summary>
+            File doesn't exist (pft).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEREAD">
+            <summary>
+            File read error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILERENAME">
+            <summary>
+            File rename error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILESTW">
+            <summary>
+            File doesn't exist (stw).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEWRITE">
+            <summary>
+            File write error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_FILEEOF">
+            <summary>
+            File end.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_LLCISISETRAP">
+            <summary>
+            Cisis low level error trap.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_LLISISETRAP">
+            <summary>
+            Isis low level error trap.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_LLJISISETRAP">
+            <summary>
+            JIsis low level error trap.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_LLCORBAETRAP">
+            <summary>
+            Corba low level error trap.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_LLPHPISISETRAP">
+            <summary>
+            PHP low level error trap.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_MEMALLOCAT">
+            <summary>
+            Memory allocation error.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARAPPHAND">
+            <summary>
+            Invalid application handle.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARFILNSIZ">
+            <summary>
+            Invalid file name size.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARFLDSYNT">
+            <summary>
+            Syntax error (field update).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARFMTSYNT">
+            <summary>
+            Syntax error (format).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARNULLPNT">
+            <summary>
+            Null pointer.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARNULLSTR">
+            <summary>
+            String with zero size.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PAROUTRANG">
+            <summary>
+            Parameter out of range.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARSPAHAND">
+            <summary>
+            Invalid space handle.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARSRCSYNT">
+            <summary>
+            Syntax error (search).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARSUBFSPC">
+            <summary>
+            Invalid subfield specification.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_PARUPDSYNT">
+            <summary>
+            Syntax error (record update).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_RECEOF">
+            <summary>
+            Record eof: found eof in database.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_RECLOCKED">
+            <summary>
+            Record locked.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_RECLOGIDEL">
+            <summary>
+            Record logically deleted.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_RECNOTNORM">
+            <summary>
+            Record condition is not RCNORMAL.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_RECPHYSDEL">
+            <summary>
+            Record physically deleted.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_TRMEOF">
+            <summary>
+            Term eof: found eof in database.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_TRMNEXT">
+            <summary>
+            Term next: key not found.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisErrorCodes.ERR_UNEXPECTED">
+            <summary>
+            Unexpected error.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisException">
+            <summary>
+            Exception occured during ISIS32.DLL interop.
+            </summary>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisException.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisException.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisException.ToString">
+            <inheritdoc cref="M:System.Object.ReferenceEquals(System.Object,System.Object)"/>
+        </member>
+        <member name="P:ManagedIrbis.Isis.IsisException.Code">
+            <summary>
+            Error code returned from ISIS32.DLL.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.IsisException.Mfn">
+            <summary>
+            MFN of erroneous record.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisInterop">
+            <summary>
+            ISIS32.DLL interop.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisInterop.DllName">
+            <summary>
+            DLL name.
+            </summary>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisDllVersion">
+            <summary>
+            ISIS32.DLL version.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppAcTab(System.Int32,System.String)">
+            <summary>
+            Specifies the ISIS alphabetic character table used in world
+            indexing technique 4.
+            </summary>
+            <param name="handle"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppDebug(System.Int32,ManagedIrbis.Isis.IsisDebugFlags)">
+            <summary>
+            Specifies the way ISIS32.DLL handles run-time error messages.
+            </summary>
+            <param name="handle"></param>
+            <param name="flags"></param>
+            <returns></returns>
+            <remarks>The default value is DEBUG_LIGHT.</remarks>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppDelete(System.Int32)">
+            <summary>
+            Deletes an ISIS Application object and frees all 
+            associated memory.
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppLogFile(System.Int32,System.String)">
+            <summary>
+            Specifies the name of a log file ISIS32.DLL uses to log
+            run-time errors.
+            </summary>
+            <param name="handle"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppNew">
+            <summary>
+            The IsisAppNew function creates an ISIS Application.
+            It returns an application handle to create ISIS Spaces
+            and displays a message-box window containing the
+            ISIS32.DLL copyright message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppParGet(System.Int32,System.String,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Retrieves a physical file name from a logical one
+            using file/path conversion table.
+            </summary>
+            <param name="handle"></param>
+            <param name="parinp"></param>
+            <param name="paroutp"></param>
+            <param name="areasize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppParSet(System.Int32,System.String)">
+            <summary>
+            Specifies the file/path conversion table.
+            </summary>
+            <param name="handle"></param>
+            <param name="pararea">Specifies the file.par file name
+            or a string describing the table. If it is a file name,
+            it must be preceded by @. The especification of the
+            extension is not required.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisAppUcTab(System.Int32,System.String)">
+            <summary>
+            Specifies the ISIS upppercase conversion table.
+            </summary>
+            <param name="handle"></param>
+            <param name="fileName">Specifies the isisuc.tab
+            file name or a string describing the 256 character
+            table. If it is a file name, it must be preceded by @.
+            The especification of the extension is not required.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaDb(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaDelete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaDf(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaFdt(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaFst(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaGf(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaHeaderMap(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="header"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaIf(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="fname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaIfCreate(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaIsoDelim(System.Int32,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="recordDelimiter"></param>
+            <param name="fieldDelimiter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaIsoIn(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="fname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaIsoOut(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="fname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaIsoOutCreate(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaMf(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="fname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaMfCreate(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaMfUnlockForce(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaMultiOn(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaMultiOff(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaName(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaNew(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="appHandle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaPft(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaRecDelim(System.Int32,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaRecShelves(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="maxMst"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaStw(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSpaTrmShelves(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="maxTrm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecControlMap(System.Int32,ManagedIrbis.Isis.IsisRecordControl@)">
+            <summary>
+            
+            </summary>
+            <param name="spaceHandle"></param>
+            <param name="ctrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecCopy(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="fromHandle"></param>
+            <param name="fromIndex"></param>
+            <param name="toHandle"></param>
+            <param name="toIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecDummy(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecDump(System.Int32,System.Int32,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="spaceHandle"></param>
+            <param name="index"></param>
+            <param name="area"></param>
+            <param name="areaSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecField(System.Int32,System.Int32,System.Int32,System.Int32,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="tag"></param>
+            <param name="occurence"></param>
+            <param name="area"></param>
+            <param name="areaSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecFieldOcc(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecFieldN(System.Int32,System.Int32,System.Int32,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="pos"></param>
+            <param name="area"></param>
+            <param name="areaSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecFieldUpdate(System.Int32,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="spaceHandle"></param>
+            <param name="index"></param>
+            <param name="updateString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecFormat(System.Int32,System.Int32,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="area"></param>
+            <param name="areaSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecFormatEx(System.Int32,System.Int32,System.Int32,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="lineSize"></param>
+            <param name="area"></param>
+            <param name="areaSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecIfUpdate(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="mfn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecIfUpdateEx(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="beginMfn"></param>
+            <param name="endMfn"></param>
+            <param name="keepPending"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecIsoRead(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecIsoWrite(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecLnk(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="beginMfn"></param>
+            <param name="endMfn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecMerge(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="fromHandle"></param>
+            <param name="fromIndex"></param>
+            <param name="toHandle"></param>
+            <param name="toIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecMfn(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecMfnChange(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="mfn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecNew(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecNewLock(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecNvf(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecRead(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="mfn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecReadLock(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="mfn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecShelfSize(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="mem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecSubField(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="tag"></param>
+            <param name="occurence"></param>
+            <param name="subField"></param>
+            <param name="area"></param>
+            <param name="areaSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecSubField(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Int32,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="tag"></param>
+            <param name="occurence"></param>
+            <param name="subField"></param>
+            <param name="subOccurence"></param>
+            <param name="area"></param>
+            <param name="areaSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecUndelete(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecUnlock(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecUnlockForce(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecUpdate(System.Int32,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <param name="sparser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecWrite(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecWriteLock(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisRecWriteUnlock(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisLnkIfLoad(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisLnkIfLoadEx(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <param name="reset"></param>
+            <param name="posts"></param>
+            <param name="balan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisLnkSort(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSrcHeaderMap(System.Int32,System.Int32,System.Int32,ManagedIrbis.Isis.IsisSearchHeader@)">
+            <summary>
+            Copies the search header control data to an
+            application program area.
+            </summary>
+            <param name="handle">Identifies the ISIS Application.</param>
+            <param name="tsfnum">Specifies the number (non negative
+            integer) of the temporary search log file containing
+            the desired search result.</param>
+            <param name="searchnum">Specifies the search number
+            (non negative integer). If this parameter is zero,
+            the last search submitted will be retrieved.</param>
+            <param name="sstrup">Specifies the area where
+            the data will be retrieved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSrcHitMap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,ManagedIrbis.Isis.IsisSearchHit[])">
+            <summary>
+            Copies a subset of search hits to an application
+            program area.
+            </summary>
+            <param name="handle">Identifies an ISIS Application.</param>
+            <param name="tsfnum">Specifies the number of the
+            temporary search log file (non negative integer)
+            containing the desired search results.</param>
+            <param name="searchnum">Specifies the search number
+            (non negative integer). If this parameter is
+            zero, the last search submitted will be retrieved.</param>
+            <param name="firstpos">Initial range position of
+            retrieved directory elements (firstpos > 0).</param>
+            <param name="lastpos">Last range position in the
+            list of retrieved directory elements.</param>
+            <param name="areap">Specifies the area where the data
+            will be copied.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSrcLogFileFlush(System.Int32,System.Int32)">
+            <summary>
+            Deletes the contents of a search log file.
+            </summary>
+            <param name="handle"></param>
+            <param name="lognumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSrcLogFileSave(System.Int32,System.Int32,System.String)">
+            <summary>
+            Save permanently the contents of a search log file 
+            in a given moment.
+            </summary>
+            <param name="handle">Identifies an ISIS Application.</param>
+            <param name="lognumber">Specifies the number (non negative
+            integer) of the search log file used by the search
+            algorithmn containing the desired search results.</param>
+            <param name="filename">Specifies the log file name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSrcLogFileUse(System.Int32,System.String,System.Int32)">
+            <summary>
+            Assigns to a search log file the searchs previously
+            saved by means of IsisSrcLogFileSave function.
+            </summary>
+            <param name="handle">Identifies an ISIS Application.</param>
+            <param name="filename"></param>
+            <param name="lognumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSrcMfnMap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32[])">
+            <summary>
+            Copies a subset of mfns from a search hit list and moves
+            it into an application program area.
+            </summary>
+            <param name="handle">Identifies an ISIS Application.</param>
+            <param name="tsfnum">Specifies the number (non negative 
+            integer) of the temporary search log file used by the
+            search algorithm containing the desired search results.
+            </param>
+            <param name="searchnum">Specifies the search number
+            (non negative integer). If this parameter is zero,
+            the last search submitted will be retrieved.</param>
+            <param name="firstpos">Initial range position in
+            the list of retrieved mfns (firstpos >0).</param>
+            <param name="lastpos">Last range position in the
+            list of retrieved mfns.</param>
+            <param name="mfnareap">Specifies an array of
+            MFN where the data will be copied.</param>
+            <returns>Returns number of MFNs or error code.</returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisSrcSearch(System.Int32,System.Int32,System.String,ManagedIrbis.Isis.IsisSearchHeader@)">
+            <summary>
+            Executes a search expression over an ISIS Space inverted 
+            file and copies basic data on the result to an application
+            program area.
+            </summary>
+            <param name="handle">Identifies the ISIS Space.</param>
+            <param name="tsfnum">Specifies the number (non negative
+            integer) of the temporary search log file to be used
+            by the search algoritm to store search results.</param>
+            <param name="express">Specifies the search expression
+            using the CDS/ISIS search language.</param>
+            <param name="areap">Specifies the area where the data
+            will be copied.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisTrmMfnMap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32[])">
+            <summary>
+            Copies a subset of mfns from a term posting list
+            and movies it into an application program area.
+            The posting corresponds to the term stored at
+            shelf index.
+            </summary>
+            <param name="handle">Identifies the ISIS Space.</param>
+            <param name="index">Specifies the term shelf number.</param>
+            <param name="firstpos">Initial range position in the
+            list of retrieved MFNs (firstpos > 0).</param>
+            <param name="lastpos">Last range position in the list
+            of retrieved MFNs.</param>
+            <param name="mfnareap">Specifies an array of MFNs
+            where the data will be copied.</param>
+            <returns>Returns number of MFNs or error code.</returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisTrmPostingMap(System.Int32,System.Int32,System.Int32,System.Int32,ManagedIrbis.Isis.IsisTermPosting[])">
+            <summary>
+            Copies a subset of postings into an application
+            program area. The postings correspond to the term
+            stored at shelf index.
+            </summary>
+            <param name="handle">Identifies the ISIS Space.</param>
+            <param name="index">Specifies the term shelf number.</param>
+            <param name="firstpos">Initial range position in the
+            list of retrieved postings elements (firstpos > 0).</param>
+            <param name="lastops">Last range position int the list
+            of retrieved postings elements.</param>
+            <param name="parea">Specifies an array of IsisTermPosting
+            structures where the data will be copied.</param>
+            <returns>Returns number of of retrieved postings
+            or error code.</returns>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisTrmReadMap(System.Int32,System.Int32,ManagedIrbis.Isis.IsisTrmRead@)">
+            <summary>
+            Loads an inverted file term into a shelf and
+            returns the number of postings or an error condition.
+            </summary>
+            <param name="handle">Identifies the ISIS Space.</param>
+            <param name="index">Specifies the term shelf number.</param>
+            <param name="key">Specifies the IsisTrmRead structure
+            with the inverted file term to be loaded.</param>
+            <returns>Returns total number of postings or error code.
+            </returns>
+            <remarks>Unless the shelf index had not been previously
+            allocated with zero bytes, this function loads the
+            corresponding posting header segment.
+            IsisTrmReadMap always converts key to uppercase.</remarks>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisTrmReadNext(System.Int32,System.Int32,ManagedIrbis.Isis.IsisTrmRead@)">
+            <summary>
+            Loads the next inverted file term and returns
+            the number of postings or an error condition.
+            </summary>
+            <param name="handle">Identifies an ISIS Space.</param>
+            <param name="index">Specifies the term shelf number.</param>
+            <param name="key">Specifies the IsisTrmReadStructure
+            where the next inverted file term will be copied.</param>
+            <returns>Returns total number of postings or error code.
+            </returns>
+            <remarks>Unless the shelf index had not been previously
+            allocated with zero bytes, this function loads the
+            corresponding posting header segment.
+            A call to IsisTrmReadNext must be preceded by a call
+            to IsisTrmReadMap, IsisTrmReadPrevious or
+            another IsisTrmReadNext.</remarks>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisTrmReadPrevious(System.Int32,System.Int32,System.String,ManagedIrbis.Isis.IsisTrmRead@)">
+            <summary>
+            Loads the previous inverted file term and returns
+            the number of postings or an error condition.
+            </summary>
+            <param name="handle">Identifies the ISIS Space.</param>
+            <param name="index">Specifies the term shelf number.</param>
+            <param name="prefix">Specifies the lower limit for 
+            the previous key.</param>
+            <param name="key">Specifies the IsisTrmRead structure
+            where the previous inverted file term will be copied.
+            </param>
+            <returns>Total number of postings or error code.</returns>
+            <remarks>Unless the shelf index had not been previously
+            allocated with zero bytes, this function loads the
+            corresponding posting header segment.
+            A call to IsisTrmReadPrevious must be preceded by a call
+            to IsisTrmReadMap, IsisTrmReadNext or
+            another IsisTrmReadPrevious.</remarks>
+        </member>
+        <member name="M:ManagedIrbis.Isis.IsisInterop.IsisTrmShelfSize(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Changes the size of an inverted file shelf.
+            </summary>
+            <param name="handle">Identifies the ISIS Space.</param>
+            <param name="index">Specifies the term shelf number.</param>
+            <param name="mem">Specifies the number of bytes 
+            to be allocated.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisRecordControl">
+            <summary>
+            <para>Each master file has a record with MFN 0 called Master File
+            Control Record. It is always stored at the beginning of the file.
+            It has a fixed length and it has no corresponding 
+            cross-reference record.</para>
+            <para>The control record has the following fixed data fields.</para>
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.Ctlmfn">
+            <summary>
+            Master file number (always zero).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.Nxtmfn">
+            <summary>
+            Next master file number to be assigned.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.Nxtmfb">
+            <summary>
+            Address of the next master file record;
+            512 bytes block number.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.Nxtmfp">
+            <summary>
+            Address of the next master file record:
+            offset within the block.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.Mftype">
+            <summary>
+            Type of master file (always zero).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.Reccnt">
+            <summary>
+            Not used (always zero).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.mfcxx1">
+            <summary>
+            Not used (always zero).
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.mfcxx2">
+            <summary>
+            Zero or number of applications with data entry lock.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordControl.mfcxx3">
+            <summary>
+            Zero or 1 for exclusive write lock granted 
+            to one application.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisRecordStatus">
+            <summary>
+            Record status as reported by ISIS32.DLL.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordStatus.NormalRecord">
+            <summary>
+            Normal (present) record.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordStatus.LogicallyDeleted">
+            <summary>
+            Record was logically deleted.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordStatus.PhysicallyDeleted">
+            <summary>
+            Record was physically deleted.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordStatus.NonExisting">
+            <summary>
+            Record not exists.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisRecordStatus.Unknown">
+            <summary>
+            Status of record unknown.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisSearchHeader">
+            <summary>
+            The function IsisSrcSearch executes a search expression over
+            an ISIS Space Inverted file, stores the result in the search
+            log file and moves basic resulting data of the expression
+            executed into an application area called search header 
+            structure.
+            A search header structure has the following data.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHeader.No">
+            <summary>
+            Search number.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHeader.Hits">
+            <summary>
+            Total number of hits.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHeader.Recs">
+            <summary>
+            Total number of records.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHeader.Segs">
+            <summary>
+            Segment postings.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHeader.Dbname">
+            <summary>
+            Database name.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHeader.Expr">
+            <summary>
+            Search expression.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisSearchHit">
+            <summary>
+            Search hits, as well as term postings, have the following
+            structure.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHit.Mfn">
+            <summary>
+            Master file record number.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHit.Id">
+            <summary>
+            Field identifier.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHit.Occ">
+            <summary>
+            Field occurence.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisSearchHit.Pos">
+            <summary>
+            Position withing the field.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisTermPosting">
+            <summary>
+            Each posting has a data structure that identifies the
+            source of the term occurence in the database.
+            A posting structure has 20 bytes.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisTermPosting.Post">
+            <summary>
+            Posting sequential number.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisTermPosting.Mfn">
+            <summary>
+            Master file record mfn that originated the term occurence.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisTermPosting.Id">
+            <summary>
+            Field identifier, as defined in the fst table.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisTermPosting.Occ">
+            <summary>
+            Field occurence.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisTermPosting.Pos">
+            <summary>
+            Position within the field.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.IsisTrmRead">
+            <summary>
+            Structure used by IsisTrmReadMap function.
+            </summary>
+        </member>
+        <member name="F:ManagedIrbis.Isis.IsisTrmRead.Key">
+            <summary>
+            Key value.
+            </summary>
+        </member>
+        <member name="T:ManagedIrbis.Isis.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ManagedIrbis.Isis.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

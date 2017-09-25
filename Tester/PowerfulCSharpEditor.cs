@@ -29,15 +29,17 @@ namespace Tester
 
         string[] keywords =
         {
-            "fi,", "and", "or", "uf", "unifor", "then", "else", "if"
+            "fi,", "and", "or", "then", "else", "if"
         };
 
-        string[] methods = {"&uf()", "&unifor()"};
+        string[] methods = {"uf()", "unifor()"};
 
         string[] snippets =
         {
             "if ^ then\n \nfi,\n",
-            "if ^ then\n \nelse\n \nfi,\n"
+            "if ^ then\n \nelse\n \nfi,\n",
+            "uf(^)", "unifor(^)"
+                
         };
 
         string[] declarationSnippets =

@@ -69,7 +69,7 @@ namespace Tester
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.undoStripButton = new System.Windows.Forms.ToolStripButton();
             this.redoStripButton = new System.Windows.Forms.ToolStripButton();
-            this.goButton = new System.Windows.Forms.ToolStripButton();
+            this.runButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.backStripButton = new System.Windows.Forms.ToolStripButton();
             this.forwardStripButton = new System.Windows.Forms.ToolStripButton();
@@ -293,6 +293,7 @@ namespace Tester
             this.btHighlightCurrentLine,
             this.btShowFoldingLines,
             this.toolStripSeparator4,
+            this.runButton,
             this.undoStripButton,
             this.redoStripButton,
             this.toolStripSeparator5,
@@ -303,9 +304,8 @@ namespace Tester
             this.toolStripSeparator6,
             this.bookmarkPlusButton,
             this.bookmarkMinusButton,
-                this.goButton,
-                this.gotoButton,
-                this.typeComboBox
+            this.gotoButton,
+            this.typeComboBox
                 
             });
             this.tsMain.Location = new System.Drawing.Point(0, 24);
@@ -453,13 +453,13 @@ namespace Tester
             // 
             // goButton
             // 
-            this.goButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.goButton.Image = ((System.Drawing.Image)(resources.GetObject("_goButton.Image")));
-            this.goButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(23, 22);
-            this.goButton.Text = "Go (F5)";
-            this.goButton.Click += new System.EventHandler(this._goButton_Click);
+            this.runButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.runButton.Image = ((System.Drawing.Image)(resources.GetObject("_goButton.Image")));
+            this.runButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.runButton.Name = "runButton";
+            this.runButton.Size = new System.Drawing.Size(16, 15);
+            this.runButton.Text = "Run (F5)";
+            this.runButton.Click += new System.EventHandler(this._goButton_Click);
             // 
             // toolStripSeparator5
             // 
@@ -547,6 +547,7 @@ namespace Tester
             this.typeComboBox.SelectedIndex = 0;
             this.typeComboBox.SelectedIndexChanged += 
                 new System.EventHandler(TypeComboBox_SelectedIndexChanged);
+            this.typeComboBox.Size = new System.Drawing.Size(55, 22);
             // 
             // toolStripSeparator
             // 
@@ -1023,7 +1024,7 @@ namespace Tester
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton undoStripButton;
         private System.Windows.Forms.ToolStripButton redoStripButton;
-        private System.Windows.Forms.ToolStripButton goButton;
+        private System.Windows.Forms.ToolStripButton runButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripTextBox tbFind;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;

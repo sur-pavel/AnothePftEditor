@@ -82,7 +82,7 @@ namespace FastColoredTextBoxNS
         protected Regex JScriptStringRegex;
 
         protected Regex PftCommentRegex1
-        //    ,PftCommentRegex2
+            //    ,PftCommentRegex2
 //            ,PftCommentRegex3
             ;
 
@@ -198,7 +198,6 @@ namespace FastColoredTextBoxNS
                     break;
             }
         }
-
 
 
         /// <summary>
@@ -389,7 +388,7 @@ namespace FastColoredTextBoxNS
                     return;
                 }
         }
-        
+
         protected void PftAutoIndentNeeded(object sender, AutoIndentEventArgs args)
         {
             //end of block
@@ -424,9 +423,8 @@ namespace FastColoredTextBoxNS
                 args.Shift = -args.TabLength;
                 return;
             }
-                
         }
-        
+
 
         /// <summary>
         /// Uses the given <paramref name="doc"/> to parse a XML description and adds it as syntax descriptor. 
@@ -1306,7 +1304,7 @@ namespace FastColoredTextBoxNS
 //                RegexOptions.Singleline | RegexOptions.RightToLeft | RegexCompiledOption);
             PftNumberRegex = new Regex(@"\b\d+[\.]?\d*([eE]\-?\d+)?[lLdDfF]?\b|\b0x[a-fA-F\d]+\b",
                 RegexCompiledOption);
-            
+
             PftFieldRegex = new Regex(@"\bv\d{0,3}\^?\w?\b",
                 RegexCompiledOption);
             PftUniforRegex = new Regex(@"(\&u(f|nifor))|(\bp)");
@@ -1341,13 +1339,13 @@ namespace FastColoredTextBoxNS
                 InitPftRegex();
             //comment highlighting
             range.SetStyle(CommentStyle, PftCommentRegex1);
-
             //string highlighting
             range.SetStyle(StringStyle, PftStringRegex);
 //            range.SetStyle(CommentStyle, PftCommentRegex2);
 //            range.SetStyle(CommentStyle, PftCommentRegex3);
             //number highlighting
             range.SetStyle(NumberStyle, PftNumberRegex);
+
             //field highlighting
             range.SetStyle(FieldStyle, PftFieldRegex);
             range.SetStyle(UniforStyle, PftUniforRegex);

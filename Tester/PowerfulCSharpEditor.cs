@@ -35,7 +35,7 @@ namespace Tester
         {
             "if ^ then\n \nfi,\n",
             "if ^ then\n \nelse\n \nfi,\n",
-            "&uf(^)", "&unifor(^)"
+            "uf(^)", "unifor(^)"
         };
 
         string[] declarationSnippets =

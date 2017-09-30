@@ -225,9 +225,17 @@ namespace Tester
                 case Keys.F5:
                     _goButton_Click(sender, e);
                     break;
-
-
             }
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.N)
+            {
+                CreateTab(null);
+            }
+
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
+            {
+                Save(tsFiles.SelectedItem);
+            }
+
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -238,8 +246,14 @@ namespace Tester
                     _goButton_Click(sender, e);
                     e.Handled = true;
                     break;
-
-
+            }
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.N)
+            {
+                CreateTab(null);
+            }
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
+            {
+                Save(tsFiles.SelectedItem);
             }
         }
 

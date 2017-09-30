@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Drawing.Drawing2D;
-using AM;
-using IrbisUI.Pft;
 using ManagedIrbis;
 using ManagedIrbis.ImportExport;
 using ManagedIrbis.Pft;
 using ManagedIrbis.Pft.Infrastructure;
+using Tester.Properties;
 
 namespace Tester
 {
@@ -38,16 +35,18 @@ namespace Tester
         {
             "if ^ then\n \nfi,\n",
             "if ^ then\n \nelse\n \nfi,\n",
-            "uf(^)", "unifor(^)"
+            "&uf(^)", "&unifor(^)"
         };
 
         string[] declarationSnippets =
         {
+/*
             "public class ^\n{\n}", "private class ^\n{\n}", "internal class ^\n{\n}",
             "public struct ^\n{\n;\n}", "private struct ^\n{\n;\n}", "internal struct ^\n{\n;\n}",
             "public void ^()\n{\n;\n}", "private void ^()\n{\n;\n}", "internal void ^()\n{\n;\n}",
             "protected void ^()\n{\n;\n}",
             "public ^{ get; set; }", "private ^{ get; set; }", "internal ^{ get; set; }", "protected ^{ get; set; }"
+*/
         };
 
         Style invisibleCharsStyle = new InvisibleCharsRenderer(Pens.Gray);
@@ -61,11 +60,11 @@ namespace Tester
 
 
             //init menu images
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(PowerfulCSharpEditor));
-            copyToolStripMenuItem.Image = ((System.Drawing.Image) (resources.GetObject("copyToolStripButton.Image")));
-            cutToolStripMenuItem.Image = ((System.Drawing.Image) (resources.GetObject("cutToolStripButton.Image")));
-            pasteToolStripMenuItem.Image = ((System.Drawing.Image) (resources.GetObject("pasteToolStripButton.Image")));
+            ComponentResourceManager resources =
+                new ComponentResourceManager(typeof(PowerfulCSharpEditor));
+            copyToolStripMenuItem.Image = ((Image) (resources.GetObject("copyToolStripButton.Image")));
+            cutToolStripMenuItem.Image = ((Image) (resources.GetObject("cutToolStripButton.Image")));
+            pasteToolStripMenuItem.Image = ((Image) (resources.GetObject("pasteToolStripButton.Image")));
         }
 
 
@@ -118,7 +117,7 @@ namespace Tester
             catch (Exception ex)
             {
                 if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) ==
-                    System.Windows.Forms.DialogResult.Retry)
+                    DialogResult.Retry)
                     CreateTab(fileName);
             }
         }
@@ -507,7 +506,7 @@ namespace Tester
                 switch (MessageBox.Show("Do you want save " + e.Item.Title + " ?", "Save",
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
                 {
-                    case System.Windows.Forms.DialogResult.Yes:
+                    case DialogResult.Yes:
                         if (!Save(e.Item))
                             e.Cancel = true;
                         break;
@@ -523,7 +522,7 @@ namespace Tester
             var tb = (tab.Controls[0] as FastColoredTextBox);
             if (tab.Tag == null)
             {
-                if (sfdMain.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                if (sfdMain.ShowDialog() != DialogResult.OK)
                     return false;
                 tab.Title = Path.GetFileName(sfdMain.FileName);
                 tab.Tag = sfdMain.FileName;
@@ -582,7 +581,7 @@ namespace Tester
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ofdMain.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (ofdMain.ShowDialog() == DialogResult.OK)
                 CreateTab(ofdMain.FileName);
         }
 
@@ -755,16 +754,16 @@ namespace Tester
                     switch (item.type)
                     {
                         case ExplorerItemType.Class:
-                            e.Value = global::Tester.Properties.Resources.class_libraries;
+                            e.Value = Resources.class_libraries;
                             return;
                         case ExplorerItemType.Method:
-                            e.Value = global::Tester.Properties.Resources.box;
+                            e.Value = Resources.box;
                             return;
                         case ExplorerItemType.Event:
-                            e.Value = global::Tester.Properties.Resources.lightning;
+                            e.Value = Resources.lightning;
                             return;
                         case ExplorerItemType.Property:
-                            e.Value = global::Tester.Properties.Resources.property;
+                            e.Value = Resources.property;
                             return;
                     }
             }

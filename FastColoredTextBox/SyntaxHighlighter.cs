@@ -695,12 +695,12 @@ namespace FastColoredTextBoxNS
                     CommentTagStyle = GrayStyle;
                     break;
                 case Language.Pft:
+                    CommentStyle = GrayStyle;
                     StringStyle = GreenBoldStyle;
                     FieldStyle = BlueVioletStyle;
                     UniforStyle = BlackBoldStyle;
-                    CommentStyle = GrayStyle;
                     NumberStyle = BlueVioletStyle;
-                    AttributeStyle = GreenStyle;
+                    AttributeStyle = GrayStyle;
                     ClassNameStyle = BoldStyle;
                     KeywordStyle = BlueBoldStyle;
                     CommentTagStyle = GrayStyle;
@@ -1312,7 +1312,7 @@ namespace FastColoredTextBoxNS
             PftUniforRegex = new Regex(@"(\&u(f|nifor))|(\bp)");
             PftKeywordRegex =
                 new Regex(
-                    @"\b(then|fi|and|or|uf|unifor|true|false|break|case|catch|const|continue|default|delete|do|else|export|for|function|if|in|instanceof|new|null|return|switch|this|throw|try|var|void|while|with|typeof)\b",
+                    @"\b(then|fi|and|or|&uf|&unifor|true|false|else|if)\b",
                     RegexCompiledOption);
         }
 
@@ -1331,18 +1331,19 @@ namespace FastColoredTextBoxNS
 
             range.tb.AutoIndentCharsPatterns
                 = @"
-^\s*[\w\.]+(\s\w+)?\s*(?<range>=)\s*(?<range>[^;]+);
+^\s*[\w\.\(\)]+\s*(?<range>=)\s*(?<range>.+)
 ";
 
             //clear style of changed range
-            range.ClearStyle(StringStyle, CommentStyle, NumberStyle, KeywordStyle);
+            range.ClearStyle(StringStyle, CommentStyle, NumberStyle, FieldStyle, UniforStyle, KeywordStyle);
             //
             if (PftStringRegex == null)
                 InitPftRegex();
-            //string highlighting
-            range.SetStyle(StringStyle, PftStringRegex);
             //comment highlighting
             range.SetStyle(CommentStyle, PftCommentRegex1);
+
+            //string highlighting
+            range.SetStyle(StringStyle, PftStringRegex);
 //            range.SetStyle(CommentStyle, PftCommentRegex2);
 //            range.SetStyle(CommentStyle, PftCommentRegex3);
             //number highlighting

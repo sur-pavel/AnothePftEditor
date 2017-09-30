@@ -39,7 +39,6 @@ namespace Tester
             "if ^ then\n \nfi,\n",
             "if ^ then\n \nelse\n \nfi,\n",
             "uf(^)", "unifor(^)"
-                
         };
 
         string[] declarationSnippets =
@@ -59,7 +58,7 @@ namespace Tester
         public PowerfulCSharpEditor()
         {
             InitializeComponent();
-                
+
 
             //init menu images
             System.ComponentModel.ComponentResourceManager resources =
@@ -140,11 +139,30 @@ namespace Tester
 
 
             PftLexer lexer = new PftLexer();
-            _tokenList = lexer.Tokenize(CurrentTB.Text);
+            string pftText = ParsePft(CurrentTB.Text);
+            _tokenList = lexer.Tokenize(pftText);
 
 
             PftParser parser = new PftParser(_tokenList);
             _program = parser.Parse();
+        }
+
+        private string ParsePft(string text)
+        {
+            string[] pftStrings = text.Split(
+                new[] {Environment.NewLine},
+                StringSplitOptions.None);
+            StringBuilder builder = new StringBuilder();
+            foreach (string s in pftStrings)
+            {
+                if (!Regex.IsMatch(s, @"//.*$"))
+                {
+                    builder.Append(s).Append(" ");
+                }
+            }
+
+            Regex regex = new Regex("[ ]{2,}", RegexOptions.None);
+            return regex.Replace(builder.ToString(), " ");
         }
 
         private void Run()
@@ -235,7 +253,6 @@ namespace Tester
             {
                 Save(tsFiles.SelectedItem);
             }
-
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -514,7 +531,13 @@ namespace Tester
 
             try
             {
-                File.WriteAllText(tab.Tag as string, tb.Text);
+                var path = tab.Tag as string;
+                File.WriteAllText(path, tb.Text);
+
+                if (path.Contains("PFTe"))
+                {
+                    File.WriteAllText(path.Replace("PFTe", "PFT"), ParsePft(tb.Text));
+                }
                 tb.IsChanged = false;
             }
             catch (Exception ex)
@@ -1075,6 +1098,13 @@ namespace Tester
         {
             if (CurrentTB != null)
                 CurrentTB.Zoom = int.Parse((sender as ToolStripItem).Tag.ToString());
+        }
+
+        private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string fileName = this.typeComboBox.Text + ".TXT";
+            string path = Path.Combine(Environment.CurrentDirectory, fileName);
+            _recordBox.Text = File.ReadAllText(path,Encoding.Default);
         }
     }
 

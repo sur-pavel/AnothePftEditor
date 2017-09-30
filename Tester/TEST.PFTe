@@ -1,5 +1,6 @@
-(if p(v910)then 
-    if '0 8 P':v910^a or 'C U':v910^a and v910^c<>'' then 
+(if  p(v910)then 
+//  gogooofodasooadgoagjalgjal;jg;alkjrrj
+    if 'dd0 8 P':v910^a or 'C U':v910^a and v910^c<>'' then 
         '5 ^a',
         if v910^d:'~'then
             &uf('G0'v910^d)
@@ -37,4 +38,4 @@
             '^p'&unifor('Korg.mnu|1')
             fi,
         fi 
-    fi/)
+fi/)

@@ -81,9 +81,10 @@ namespace FastColoredTextBoxNS
         protected Regex JScriptNumberRegex;
         protected Regex JScriptStringRegex;
 
-        protected Regex PftCommentRegex1,
-            PftCommentRegex2,
-            PftCommentRegex3;
+        protected Regex PftCommentRegex1
+        //    ,PftCommentRegex2
+//            ,PftCommentRegex3
+            ;
 
         protected Regex PftKeywordRegex;
         protected Regex PftNumberRegex;
@@ -391,56 +392,38 @@ namespace FastColoredTextBoxNS
         
         protected void PftAutoIndentNeeded(object sender, AutoIndentEventArgs args)
         {
-            //block {}
-            if (Regex.IsMatch(args.LineText, @"^[^""']*\{.*\}[^""']*$"))
-                return;
-            //start of block {}
-            if (Regex.IsMatch(args.LineText, @"^[^""']*\{"))
-            {
-                args.ShiftNextLines = args.TabLength;
-                return;
-            }
-            //end of block {}
-            if (Regex.IsMatch(args.LineText, @"}[^""']*$"))
+            //end of block
+
+            if (Regex.IsMatch(args.LineText, @"^\s*(fi)\b", RegexOptions.IgnoreCase))
             {
                 args.Shift = -args.TabLength;
                 args.ShiftNextLines = -args.TabLength;
                 return;
             }
-            //start of block if fi
-            if (Regex.IsMatch(args.LineText, @"\bthen\b"))
+
+
+            // then ...
+
+            if (Regex.IsMatch(args.LineText, @"\b(then)\s*\S+", RegexOptions.IgnoreCase))
+                return;
+
+
+            //start of operator block
+
+            if (Regex.IsMatch(args.LineText, @"^\s*(if)\b", RegexOptions.IgnoreCase))
             {
-                
                 args.ShiftNextLines = args.TabLength;
                 return;
             }
-            //end of block if fi
-            if (Regex.IsMatch(args.LineText, @"\bfi\b\w?"))
-            {
-                args.Shift = -args.TabLength;
-                args.ShiftNextLines = -args.TabLength;
-                return;
-            }
-            //label
-            if (Regex.IsMatch(args.LineText, @"^\s*\w+\s*:\s*($|//)") &&
-                !Regex.IsMatch(args.LineText, @"^\s*default\s*:"))
-            {
-                args.Shift = -args.TabLength;
-                return;
-            }
-            //some statements: case, default
-            if (Regex.IsMatch(args.LineText, @"^\s*(case|default)\b.*:\s*($|//)"))
-            {
-                args.Shift = -args.TabLength / 2;
-                return;
-            }
+
+
             //Statements else, elseif, case etc
-            if (Regex.IsMatch(args.LineText, @"^\s*else\b", RegexOptions.IgnoreCase))
+
+            if (Regex.IsMatch(args.LineText, @"^\s*(else)\b", RegexOptions.IgnoreCase))
             {
-                args.Shift = -args.TabLength/2;
+                args.Shift = -args.TabLength;
                 return;
             }
-            //is unclosed operator in previous line ?
                 
         }
         
@@ -715,7 +698,7 @@ namespace FastColoredTextBoxNS
                     StringStyle = GreenBoldStyle;
                     FieldStyle = BlueVioletStyle;
                     UniforStyle = BlackBoldStyle;
-                    CommentStyle = GreenStyle;
+                    CommentStyle = GrayStyle;
                     NumberStyle = BlueVioletStyle;
                     AttributeStyle = GreenStyle;
                     ClassNameStyle = BoldStyle;
@@ -1318,9 +1301,9 @@ namespace FastColoredTextBoxNS
         {
             PftStringRegex = new Regex(@"""""|''|"".*?[^\\]""|'.*?[^\\]'", RegexCompiledOption);
             PftCommentRegex1 = new Regex(@"//.*$", RegexOptions.Multiline | RegexCompiledOption);
-            PftCommentRegex2 = new Regex(@"(/\*.*?\*/)|(/\*.*)", RegexOptions.Singleline | RegexCompiledOption);
-            PftCommentRegex3 = new Regex(@"(/\*.*?\*/)|(.*\*/)",
-                RegexOptions.Singleline | RegexOptions.RightToLeft | RegexCompiledOption);
+//            PftCommentRegex2 = new Regex(@"(/\*.*?\*/)|(/\*.*)", RegexOptions.Singleline | RegexCompiledOption);
+//            PftCommentRegex3 = new Regex(@"(/\*.*?\*/)|(.*\*/)",
+//                RegexOptions.Singleline | RegexOptions.RightToLeft | RegexCompiledOption);
             PftNumberRegex = new Regex(@"\b\d+[\.]?\d*([eE]\-?\d+)?[lLdDfF]?\b|\b0x[a-fA-F\d]+\b",
                 RegexCompiledOption);
             
@@ -1360,8 +1343,8 @@ namespace FastColoredTextBoxNS
             range.SetStyle(StringStyle, PftStringRegex);
             //comment highlighting
             range.SetStyle(CommentStyle, PftCommentRegex1);
-            range.SetStyle(CommentStyle, PftCommentRegex2);
-            range.SetStyle(CommentStyle, PftCommentRegex3);
+//            range.SetStyle(CommentStyle, PftCommentRegex2);
+//            range.SetStyle(CommentStyle, PftCommentRegex3);
             //number highlighting
             range.SetStyle(NumberStyle, PftNumberRegex);
             //field highlighting

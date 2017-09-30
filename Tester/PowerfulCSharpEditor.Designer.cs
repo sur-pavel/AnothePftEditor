@@ -86,6 +86,7 @@ namespace Tester
             this._warningPage = new System.Windows.Forms.TabPage();
             this._warningBox = new System.Windows.Forms.TextBox();
             this._recordBox = new System.Windows.Forms.TextBox();
+            this.typeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer = new SplitContainer();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -302,9 +303,10 @@ namespace Tester
             this.toolStripSeparator6,
             this.bookmarkPlusButton,
             this.bookmarkMinusButton,
-                this.goButton
-                ,
-            this.gotoButton 
+                this.goButton,
+                this.gotoButton,
+                this.typeComboBox
+                
             });
             this.tsMain.Location = new System.Drawing.Point(0, 24);
             this.tsMain.Name = "tsMain";
@@ -533,6 +535,18 @@ namespace Tester
             this.gotoButton.Size = new System.Drawing.Size(55, 22);
             this.gotoButton.Text = "Goto...";
             this.gotoButton.DropDownOpening += new System.EventHandler(this.gotoButton_DropDownOpening);
+            //
+            // typeComboBox
+            //
+            this.typeComboBox.Items.AddRange(new object[] {
+                "PAZK",
+                "SPEC",
+                "PVK",
+                "ASP"
+            });
+            this.typeComboBox.SelectedIndex = 0;
+            this.typeComboBox.SelectedIndexChanged += 
+                new System.EventHandler(TypeComboBox_SelectedIndexChanged);
             // 
             // toolStripSeparator
             // 
@@ -1059,6 +1073,7 @@ namespace Tester
         private System.Windows.Forms.RichTextBox _rtfBox;
         private System.Windows.Forms.TextBox _recordBox;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ToolStripComboBox typeComboBox;
        
 
 

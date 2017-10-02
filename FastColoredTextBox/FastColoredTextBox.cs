@@ -176,7 +176,7 @@ namespace FastColoredTextBoxNS
             lastNavigatedDateTime = DateTime.Now;
             AutoIndent = true;
             AutoIndentExistingLines = true;
-            CommentPrefix = "//";
+            CommentPrefix = "/*";
             lineNumberStartValue = 1;
             multiline = true;
             scrollBars = true;

@@ -135,11 +135,10 @@ namespace Tester
             string recordText = _recordBox.Text;
             StringReader reader = new StringReader(recordText);
             _record = PlainText.ReadRecord(reader);
-
-
+            
             PftLexer lexer = new PftLexer();
             string pftText = ParsePft(CurrentTB.Text);
-            _tokenList = lexer.Tokenize(pftText);
+            _tokenList = lexer.Tokenize(CurrentTB.Text);
 
 
             PftParser parser = new PftParser(_tokenList);
@@ -154,7 +153,7 @@ namespace Tester
             StringBuilder builder = new StringBuilder();
             foreach (string s in pftStrings)
             {
-                if (!Regex.IsMatch(s, @"//.*$"))
+                if (!Regex.IsMatch(s, @"/\*.*$"))
                 {
                     builder.Append(s).Append(" ");
                 }
@@ -172,7 +171,11 @@ namespace Tester
             };
 
 
-            string result = formatter.FormatRecord(_record);
+            string result = formatter.FormatRecord(_record)
+                .Replace(@"\par", Environment.NewLine)
+                .Replace(@"\tab", "    ")
+                .Replace(@"\page", Environment.NewLine + Environment.NewLine)
+                ;
             _resutlBox.Text = result;
             try
             {
@@ -228,6 +231,24 @@ namespace Tester
             {
                 _resutlBox.Text = exception.ToString();
             }
+        }
+
+        private static string PftNormalize(string pft)
+        {
+            pft = Regex.Replace(pft, "then", "then", RegexOptions.IgnoreCase);
+            pft = Regex.Replace(pft, "if", "if", RegexOptions.IgnoreCase);
+            pft = Regex.Replace(pft, "else", "else", RegexOptions.IgnoreCase);
+            pft = Regex.Replace(pft, "fi", "fi", RegexOptions.IgnoreCase);
+            pft = pft.Replace(Environment.NewLine, " ");
+            Regex regex = new Regex("[ ]{2,}", RegexOptions.None);
+            pft = regex.Replace(pft, " ");
+            pft = pft
+                .Replace("unifor", "uf")
+                .Replace("if", "\nif").Replace("else", "\nelse\n").Replace("then", "then\n").Replace("fi,", "fi")
+                .Replace("fi", "\nfi,\n")
+                .Replace("\n \n", "\n");
+            
+            return pft;
         }
 
 
@@ -1003,12 +1024,12 @@ namespace Tester
 
         private void commentSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.InsertLinePrefix("//");
+            CurrentTB.InsertLinePrefix("/*");
         }
 
         private void uncommentSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.RemoveLinePrefix("//");
+            CurrentTB.RemoveLinePrefix("/*");
         }
 
         private void cloneLinesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1032,7 +1053,7 @@ namespace Tester
             //get text of selected lines
             string text = Environment.NewLine + CurrentTB.Selection.Text;
             //comment lines
-            CurrentTB.InsertLinePrefix("//");
+            CurrentTB.InsertLinePrefix("/*");
             //move caret to end of selected lines
             CurrentTB.Selection.Start = CurrentTB.Selection.End;
             //insert text
@@ -1054,6 +1075,14 @@ namespace Tester
             if (CurrentTB == null)
                 return;
             CurrentTB.UnbookmarkLine(CurrentTB.Selection.Start.iLine);
+        }    
+        private void reformatTextButton_Click(object sender, EventArgs e)
+        {
+            if (CurrentTB == null)
+                return;
+            CurrentTB.Text = PftNormalize(CurrentTB.Text);
+            CurrentTB.SelectAll();
+            CurrentTB.DoAutoIndent();
         }
 
         private void gotoButton_DropDownOpening(object sender, EventArgs e)

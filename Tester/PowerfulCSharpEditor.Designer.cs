@@ -92,6 +92,8 @@ namespace Tester
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.bookmarkPlusButton = new System.Windows.Forms.ToolStripButton();
             this.bookmarkMinusButton = new System.Windows.Forms.ToolStripButton();
+            this.reformatTextButton = new System.Windows.Forms.ToolStripButton();
+            this.bookmarkMinusButton = new System.Windows.Forms.ToolStripButton();
             this.gotoButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -304,6 +306,7 @@ namespace Tester
             this.toolStripSeparator6,
             this.bookmarkPlusButton,
             this.bookmarkMinusButton,
+                this.reformatTextButton,
             this.gotoButton,
             this.typeComboBox
                 
@@ -525,6 +528,16 @@ namespace Tester
             this.bookmarkMinusButton.Size = new System.Drawing.Size(23, 22);
             this.bookmarkMinusButton.Text = "Remove bookmark (Ctrl-Shift-B)";
             this.bookmarkMinusButton.Click += new System.EventHandler(this.bookmarkMinusButton_Click);
+            //
+            // reformatTextButton
+            //
+            this.reformatTextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.reformatTextButton.Image = ((System.Drawing.Image)(resources.GetObject("reformatTextButton.Image")));
+            this.reformatTextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.reformatTextButton.Name = "reformatTextButton";
+            this.reformatTextButton.Size = new System.Drawing.Size(23, 22);
+            this.reformatTextButton.Text = "Reformat Text";
+            this.reformatTextButton.Click += new System.EventHandler(this.reformatTextButton_Click);
             // 
             // gotoButton
             // 
@@ -1052,6 +1065,7 @@ namespace Tester
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton bookmarkPlusButton;
         private System.Windows.Forms.ToolStripButton bookmarkMinusButton;
+        private System.Windows.Forms.ToolStripButton reformatTextButton;
         private System.Windows.Forms.ToolStripDropDownButton gotoButton;
         private System.Windows.Forms.ToolStripButton btShowFoldingLines;
         private System.Windows.Forms.ToolStripSplitButton btZoom;

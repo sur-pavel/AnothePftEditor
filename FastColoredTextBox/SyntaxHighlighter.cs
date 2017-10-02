@@ -1298,7 +1298,7 @@ namespace FastColoredTextBoxNS
         protected void InitPftRegex()
         {
             PftStringRegex = new Regex(@"""""|''|"".*?[^\\]""|'.*?[^\\]'", RegexCompiledOption);
-            PftCommentRegex1 = new Regex(@"//.*$", RegexOptions.Multiline | RegexCompiledOption);
+            PftCommentRegex1 = new Regex(@"/\*.*$", RegexOptions.Multiline | RegexCompiledOption);
 //            PftCommentRegex2 = new Regex(@"(/\*.*?\*/)|(/\*.*)", RegexOptions.Singleline | RegexCompiledOption);
 //            PftCommentRegex3 = new Regex(@"(/\*.*?\*/)|(.*\*/)",
 //                RegexOptions.Singleline | RegexOptions.RightToLeft | RegexCompiledOption);
@@ -1320,7 +1320,7 @@ namespace FastColoredTextBoxNS
         /// <param name="range"></param>
         public virtual void PftSyntaxHighlight(Range range)
         {
-            range.tb.CommentPrefix = "//";
+            range.tb.CommentPrefix = "/*";
             range.tb.LeftBracket = '(';
             range.tb.RightBracket = ')';
             range.tb.LeftBracket2 = '{';

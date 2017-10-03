@@ -557,7 +557,7 @@ namespace PftEditor
 
                 if (path.Contains("PFTe"))
                 {
-                    File.WriteAllText(path.Replace("PFTe", "PFT"), ParsePft(tb.Text));
+                    File.WriteAllText(path.Replace("PFTe", "PFT"), ParsePft(tb.Text), Encoding.Default);
                 }
                 tb.IsChanged = false;
             }

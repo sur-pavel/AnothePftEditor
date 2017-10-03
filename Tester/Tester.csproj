@@ -8,8 +8,8 @@
     <ProjectGuid>{EBE443EE-F4C7-49E6-AC22-959CA62FAA05}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tester</RootNamespace>
-    <AssemblyName>Tester</AssemblyName>
+    <RootNamespace>PftEditor</RootNamespace>
+    <AssemblyName>PftEditor</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -178,7 +178,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)Tester.exe" "$(SolutionDir)Binary"
+    <PostBuildEvent>copy "$(TargetDir)PftEditor.exe" "$(SolutionDir)Binary"
 copy "$(TargetDir)*.dll" "$(SolutionDir)Binary"
 copy "$(TargetDir)*.xml" "$(SolutionDir)Binary"
 </PostBuildEvent>

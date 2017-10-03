@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Tester
+namespace PftEditor
 {
     partial class PowerfulCSharpEditor
     {
@@ -93,6 +92,7 @@ namespace Tester
             this.bookmarkPlusButton = new System.Windows.Forms.ToolStripButton();
             this.bookmarkMinusButton = new System.Windows.Forms.ToolStripButton();
             this.reformatTextButton = new System.Windows.Forms.ToolStripButton();
+            this.removeFormatButton = new System.Windows.Forms.ToolStripButton();
             this.bookmarkMinusButton = new System.Windows.Forms.ToolStripButton();
             this.gotoButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -307,6 +307,7 @@ namespace Tester
             this.bookmarkPlusButton,
             this.bookmarkMinusButton,
                 this.reformatTextButton,
+                this.removeFormatButton,
             this.gotoButton,
             this.typeComboBox
                 
@@ -408,7 +409,7 @@ namespace Tester
             // 
             this.btHighlightCurrentLine.CheckOnClick = true;
             this.btHighlightCurrentLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btHighlightCurrentLine.Image = global::Tester.Properties.Resources.edit_padding_top;
+            this.btHighlightCurrentLine.Image = global::PftEditor.Properties.Resources.edit_padding_top;
             this.btHighlightCurrentLine.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btHighlightCurrentLine.Name = "btHighlightCurrentLine";
             this.btHighlightCurrentLine.Size = new System.Drawing.Size(23, 22);
@@ -437,7 +438,7 @@ namespace Tester
             // undoStripButton
             // 
             this.undoStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.undoStripButton.Image = global::Tester.Properties.Resources.undo_16x16;
+            this.undoStripButton.Image = global::PftEditor.Properties.Resources.undo_16x16;
             this.undoStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.undoStripButton.Name = "undoStripButton";
             this.undoStripButton.Size = new System.Drawing.Size(23, 22);
@@ -447,7 +448,7 @@ namespace Tester
             // redoStripButton
             // 
             this.redoStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.redoStripButton.Image = global::Tester.Properties.Resources.redo_16x16;
+            this.redoStripButton.Image = global::PftEditor.Properties.Resources.redo_16x16;
             this.redoStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.redoStripButton.Name = "redoStripButton";
             this.redoStripButton.Size = new System.Drawing.Size(23, 22);
@@ -472,7 +473,7 @@ namespace Tester
             // backStripButton
             // 
             this.backStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.backStripButton.Image = global::Tester.Properties.Resources.backward0_16x16;
+            this.backStripButton.Image = global::PftEditor.Properties.Resources.backward0_16x16;
             this.backStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.backStripButton.Name = "backStripButton";
             this.backStripButton.Size = new System.Drawing.Size(23, 22);
@@ -482,7 +483,7 @@ namespace Tester
             // forwardStripButton
             // 
             this.forwardStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.forwardStripButton.Image = global::Tester.Properties.Resources.forward_16x16;
+            this.forwardStripButton.Image = global::PftEditor.Properties.Resources.forward_16x16;
             this.forwardStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.forwardStripButton.Name = "forwardStripButton";
             this.forwardStripButton.Size = new System.Drawing.Size(23, 22);
@@ -512,7 +513,7 @@ namespace Tester
             // bookmarkPlusButton
             // 
             this.bookmarkPlusButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookmarkPlusButton.Image = global::Tester.Properties.Resources.layer__plus;
+            this.bookmarkPlusButton.Image = global::PftEditor.Properties.Resources.layer__plus;
             this.bookmarkPlusButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bookmarkPlusButton.Name = "bookmarkPlusButton";
             this.bookmarkPlusButton.Size = new System.Drawing.Size(23, 22);
@@ -522,7 +523,7 @@ namespace Tester
             // bookmarkMinusButton
             // 
             this.bookmarkMinusButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookmarkMinusButton.Image = global::Tester.Properties.Resources.layer__minus;
+            this.bookmarkMinusButton.Image = global::PftEditor.Properties.Resources.layer__minus;
             this.bookmarkMinusButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bookmarkMinusButton.Name = "bookmarkMinusButton";
             this.bookmarkMinusButton.Size = new System.Drawing.Size(23, 22);
@@ -538,6 +539,16 @@ namespace Tester
             this.reformatTextButton.Size = new System.Drawing.Size(23, 22);
             this.reformatTextButton.Text = "Reformat Text";
             this.reformatTextButton.Click += new System.EventHandler(this.reformatTextButton_Click);
+            //
+            // removeFormatButton
+            //
+            this.removeFormatButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.removeFormatButton.Image = ((System.Drawing.Image)(resources.GetObject("removeFormatButton.Image")));
+            this.removeFormatButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.removeFormatButton.Name = "removeFormatButton";
+            this.removeFormatButton.Size = new System.Drawing.Size(23, 22);
+            this.removeFormatButton.Text = "Remove format";
+            this.removeFormatButton.Click += new System.EventHandler(this.removeFormatButton_Click);
             // 
             // gotoButton
             // 
@@ -761,12 +772,12 @@ namespace Tester
             // 
             this.sfdMain.DefaultExt = "PFTe";
             
-            this.sfdMain.Filter = "PFT file(*.PFT)|*.PFT|PFT extended file (.PFTe)|*.PFTe";
+            this.sfdMain.Filter = "PFT extended file (.PFTe)|*.PFTe|PFT file(*.PFT)|*.PFT";
             // 
             // ofdMain
             // 
             this.ofdMain.DefaultExt = "PFTe";
-            this.ofdMain.Filter = "PFT extended file (.PFTe)|*.PFTe|PFT file(*.PFT)|*.PFT";
+            this.ofdMain.Filter = "PFT extended file (.PFTe)|*.PFTe|PFT file(*.PFT)|*.PFT|All files(*.*)|*.*";
             // 
             // cmMain
             // 
@@ -825,7 +836,7 @@ namespace Tester
             // 
             // undoToolStripMenuItem
             // 
-            this.undoToolStripMenuItem.Image = global::Tester.Properties.Resources.undo_16x16;
+            this.undoToolStripMenuItem.Image = global::PftEditor.Properties.Resources.undo_16x16;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.undoToolStripMenuItem.Text = "Undo";
@@ -833,7 +844,7 @@ namespace Tester
             // 
             // redoToolStripMenuItem
             // 
-            this.redoToolStripMenuItem.Image = global::Tester.Properties.Resources.redo_16x16;
+            this.redoToolStripMenuItem.Image = global::PftEditor.Properties.Resources.redo_16x16;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.redoToolStripMenuItem.Text = "Redo";
@@ -1066,6 +1077,7 @@ namespace Tester
         private System.Windows.Forms.ToolStripButton bookmarkPlusButton;
         private System.Windows.Forms.ToolStripButton bookmarkMinusButton;
         private System.Windows.Forms.ToolStripButton reformatTextButton;
+        private System.Windows.Forms.ToolStripButton removeFormatButton;
         private System.Windows.Forms.ToolStripDropDownButton gotoButton;
         private System.Windows.Forms.ToolStripButton btShowFoldingLines;
         private System.Windows.Forms.ToolStripSplitButton btZoom;

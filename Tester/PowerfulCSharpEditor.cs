@@ -14,9 +14,9 @@ using ManagedIrbis;
 using ManagedIrbis.ImportExport;
 using ManagedIrbis.Pft;
 using ManagedIrbis.Pft.Infrastructure;
-using Tester.Properties;
+using PftEditor.Properties;
 
-namespace Tester
+namespace PftEditor
 {
     public partial class PowerfulCSharpEditor : Form
     {
@@ -135,7 +135,7 @@ namespace Tester
             string recordText = _recordBox.Text;
             StringReader reader = new StringReader(recordText);
             _record = PlainText.ReadRecord(reader);
-            
+
             PftLexer lexer = new PftLexer();
             string pftText = ParsePft(CurrentTB.Text);
             _tokenList = lexer.Tokenize(CurrentTB.Text);
@@ -160,7 +160,8 @@ namespace Tester
             }
 
             Regex regex = new Regex("[ ]{2,}", RegexOptions.None);
-            return regex.Replace(builder.ToString(), " ");
+            text = regex.Replace(builder.ToString(), " ");
+            return text;
         }
 
         private void Run()
@@ -172,9 +173,9 @@ namespace Tester
 
 
             string result = formatter.FormatRecord(_record)
-                .Replace(@"\par", Environment.NewLine)
-                .Replace(@"\tab", "    ")
-                .Replace(@"\page", Environment.NewLine + Environment.NewLine)
+                    .Replace(@"\par", Environment.NewLine)
+                    .Replace(@"\tab", "    ")
+                    .Replace(@"\page", Environment.NewLine + Environment.NewLine)
                 ;
             _resutlBox.Text = result;
             try
@@ -247,7 +248,7 @@ namespace Tester
                 .Replace("if", "\nif").Replace("else", "\nelse\n").Replace("then", "then\n").Replace("fi,", "fi")
                 .Replace("fi", "\nfi,\n")
                 .Replace("\n \n", "\n");
-            
+
             return pft;
         }
 
@@ -552,7 +553,7 @@ namespace Tester
             try
             {
                 var path = tab.Tag as string;
-                File.WriteAllText(path, tb.Text);
+                File.WriteAllText(path, tb.Text, Encoding.Default);
 
                 if (path.Contains("PFTe"))
                 {
@@ -1075,7 +1076,8 @@ namespace Tester
             if (CurrentTB == null)
                 return;
             CurrentTB.UnbookmarkLine(CurrentTB.Selection.Start.iLine);
-        }    
+        }
+
         private void reformatTextButton_Click(object sender, EventArgs e)
         {
             if (CurrentTB == null)
@@ -1085,6 +1087,16 @@ namespace Tester
             CurrentTB.DoAutoIndent();
         }
 
+        private void removeFormatButton_Click(object sender, EventArgs e)
+        {
+            if (CurrentTB == null)
+                return;
+            string select = CurrentTB.SelectedText;
+            select = select.Replace(Environment.NewLine, " ");
+            Regex regex = new Regex("[ ]{2,}", RegexOptions.None);
+            select = regex.Replace(select, " ");
+            CurrentTB.SelectedText = select;
+        }
         private void gotoButton_DropDownOpening(object sender, EventArgs e)
         {
             gotoButton.DropDownItems.Clear();
@@ -1132,7 +1144,7 @@ namespace Tester
         {
             string fileName = this.typeComboBox.Text + ".TXT";
             string path = Path.Combine(Environment.CurrentDirectory, fileName);
-            _recordBox.Text = File.ReadAllText(path,Encoding.Default);
+            _recordBox.Text = File.ReadAllText(path, Encoding.Default);
         }
     }
 

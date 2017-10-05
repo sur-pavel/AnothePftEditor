@@ -752,7 +752,7 @@ namespace FastColoredTextBoxNS
                 else
                 {
                     toolTip.ToolTipTitle = title;
-                    toolTip.Show(text, window, location.X, location.Y, ToolTipDuration);
+                    toolTip.Show(text, window, location.X, location.Y);
                 }
             }
         }

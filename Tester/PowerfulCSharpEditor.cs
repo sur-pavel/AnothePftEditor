@@ -35,18 +35,41 @@ namespace PftEditor
         {
             "if ^ then\n \nfi,\n",
             "if ^ then\n \nelse\n \nfi,\n",
-            "uf(^)", "unifor(^)"
+            "uf('^')", "unifor('^')",
+        };
+
+        public static Dictionary<string, string> _unifors = new Dictionary<string, string>()
+        {
+            {"uf('+95^')", "Вернуть длину исходной строки"},
+            {
+                "uf('+96^#')", "Вернуть часть строки\n" +
+                               "+96A*SSS.NNN#<строка>\n" +
+                               "A – направление: 0 – с начала строки; 1 – с конца;\n" +
+                               "SSS – смещение\n" +
+                               "NNN – кол-во символов\n" +
+                               "&uf('+960*0.4#'v100)"
+            },
+            {
+                "uf('Q'^)", "Вернуть заданную строку в нижнем регистре\n" +
+                            "&unifor('Q'v200)"
+            },
+            {"uf('+97'^)", "Вернуть заданную строку в верхнем регистре"},
+            {
+                "uf('+98^',)", "Заменить в заданной строке один символ на другой (регистр учитывается).\n" +
+                               "+98ab<строка>\n" +
+                               "a – заменяемый символ\n" +
+                               "b – заменяющий символ\n" +
+                               "&uf('+98 0',f(1,5,0))"
+            },
         };
 
         string[] declarationSnippets =
         {
-/*
             "public class ^\n{\n}", "private class ^\n{\n}", "internal class ^\n{\n}",
             "public struct ^\n{\n;\n}", "private struct ^\n{\n;\n}", "internal struct ^\n{\n;\n}",
             "public void ^()\n{\n;\n}", "private void ^()\n{\n;\n}", "internal void ^()\n{\n;\n}",
             "protected void ^()\n{\n;\n}",
             "public ^{ get; set; }", "private ^{ get; set; }", "internal ^{ get; set; }", "protected ^{ get; set; }"
-*/
         };
 
         Style invisibleCharsStyle = new InvisibleCharsRenderer(Pens.Gray);
@@ -137,8 +160,21 @@ namespace PftEditor
             _record = PlainText.ReadRecord(reader);
 
             PftLexer lexer = new PftLexer();
-            string pftText = ParsePft(CurrentTB.Text);
             _tokenList = lexer.Tokenize(CurrentTB.Text);
+
+
+            PftParser parser = new PftParser(_tokenList);
+            _program = parser.Parse();
+        }
+
+        private void ParseSelected()
+        {
+            string recordText = _recordBox.Text;
+            StringReader reader = new StringReader(recordText);
+            _record = PlainText.ReadRecord(reader);
+
+            PftLexer lexer = new PftLexer();
+            _tokenList = lexer.Tokenize(CurrentTB.SelectedText);
 
 
             PftParser parser = new PftParser(_tokenList);
@@ -225,7 +261,14 @@ namespace PftEditor
             try
             {
                 Clear();
-                Parse();
+                if (CurrentTB.SelectedText.Equals(""))
+                {
+                    Parse();
+                }
+                else
+                {
+                    ParseSelected();
+                }
                 Run();
             }
             catch (Exception exception)
@@ -320,6 +363,14 @@ namespace PftEditor
 
             foreach (var item in snippets)
                 items.Add(new SnippetAutocompleteItem(item) {ImageIndex = 1});
+            foreach (var pair in _unifors)
+            {
+                string title = pair.Value.Split('\n')[0];
+                List<string> list = new List<string>(pair.Value.Split('\n'));
+                list.RemoveAt(0);
+                string text = string.Join("\n", list.ToArray());
+                items.Add(new SnippetAutocompleteItem(pair.Key, title, text) {ImageIndex = 1});
+            }
             foreach (var item in declarationSnippets)
                 items.Add(new DeclarationSnippet(item) {ImageIndex = 0});
             foreach (var item in methods)
@@ -1089,7 +1140,7 @@ namespace PftEditor
 
         private void removeFormatButton_Click(object sender, EventArgs e)
         {
-            if (CurrentTB == null)
+            if (CurrentTB == null || CurrentTB.SelectedText.Equals(""))
                 return;
             string select = CurrentTB.SelectedText;
             select = select.Replace(Environment.NewLine, " ");
@@ -1097,6 +1148,7 @@ namespace PftEditor
             select = regex.Replace(select, " ");
             CurrentTB.SelectedText = select;
         }
+
         private void gotoButton_DropDownOpening(object sender, EventArgs e)
         {
             gotoButton.DropDownItems.Clear();

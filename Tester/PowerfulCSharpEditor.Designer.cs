@@ -296,6 +296,8 @@ namespace PftEditor
             this.btShowFoldingLines,
             this.toolStripSeparator4,
             this.runButton,
+            this.reformatTextButton,
+            this.removeFormatButton,
             this.undoStripButton,
             this.redoStripButton,
             this.toolStripSeparator5,
@@ -306,8 +308,6 @@ namespace PftEditor
             this.toolStripSeparator6,
             this.bookmarkPlusButton,
             this.bookmarkMinusButton,
-                this.reformatTextButton,
-                this.removeFormatButton,
             this.gotoButton,
             this.typeComboBox
                 
@@ -529,10 +529,11 @@ namespace PftEditor
             this.bookmarkMinusButton.Size = new System.Drawing.Size(23, 22);
             this.bookmarkMinusButton.Text = "Remove bookmark (Ctrl-Shift-B)";
             this.bookmarkMinusButton.Click += new System.EventHandler(this.bookmarkMinusButton_Click);
+            
             //
             // reformatTextButton
             //
-            this.reformatTextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.reformatTextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.reformatTextButton.Image = ((System.Drawing.Image)(resources.GetObject("reformatTextButton.Image")));
             this.reformatTextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.reformatTextButton.Name = "reformatTextButton";
@@ -542,7 +543,7 @@ namespace PftEditor
             //
             // removeFormatButton
             //
-            this.removeFormatButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.removeFormatButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.removeFormatButton.Image = ((System.Drawing.Image)(resources.GetObject("removeFormatButton.Image")));
             this.removeFormatButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.removeFormatButton.Name = "removeFormatButton";

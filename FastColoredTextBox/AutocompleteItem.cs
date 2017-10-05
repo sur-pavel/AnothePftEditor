@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 
@@ -16,7 +17,8 @@ namespace FastColoredTextBoxNS
         string toolTipText;
         string menuText;
         public AutocompleteMenu Parent { get; internal set; }
-        
+
+       
 
         public AutocompleteItem()
         {
@@ -59,11 +61,28 @@ namespace FastColoredTextBoxNS
         /// </summary>
         public virtual CompareResult Compare(string fragmentText)
         {
-            if (Text.StartsWith(fragmentText, StringComparison.InvariantCultureIgnoreCase) &&
+            if (Text.StartsWith(fragmentText.Substring(0,2), StringComparison.InvariantCultureIgnoreCase) &&
+                ContainsAll(Text, fragmentText.Substring(2)) &&
+                
+//                Text.StartsWith(fragmentText, StringComparison.InvariantCultureIgnoreCase) &&
+                
                    Text != fragmentText)
                 return CompareResult.VisibleAndSelected;
 
             return CompareResult.Hidden;
+        }
+
+        internal bool ContainsAll(string text, string substring)
+        {
+            var charArray = substring.ToCharArray();
+            foreach (char c in charArray)
+            {
+                if (!text.Contains(c.ToString()))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -159,6 +178,13 @@ namespace FastColoredTextBoxNS
             ToolTipText = Text;
         }
 
+        public SnippetAutocompleteItem(string snippet, string tipTitle, string tipText)
+        {
+            Text = snippet.Replace("\r", "");
+            ToolTipTitle = tipTitle;
+            ToolTipText = tipText;
+        }
+
         public override string ToString()
         {
             return MenuText ?? Text.Replace("\n", " ").Replace("^", "");
@@ -203,7 +229,10 @@ namespace FastColoredTextBoxNS
         /// </summary>
         public override CompareResult Compare(string fragmentText)
         {
-            if (Text.StartsWith(fragmentText, StringComparison.InvariantCultureIgnoreCase) &&
+            if (Text.ToLower().StartsWith(fragmentText.Substring(0,2).ToLower(), StringComparison.InvariantCultureIgnoreCase) &&
+                ContainsAll(Text.ToLower(), fragmentText.Substring(2).ToLower()) &&
+                
+//                Text.StartsWith(fragmentText, StringComparison.InvariantCultureIgnoreCase) &&
                    Text != fragmentText)
                 return CompareResult.Visible;
 

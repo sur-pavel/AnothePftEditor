@@ -747,7 +747,9 @@ namespace FastColoredTextBoxNS
                 if (string.IsNullOrEmpty(text))
                 {
                     toolTip.ToolTipTitle = null;
-                    toolTip.Show(title, window, location.X, location.Y, ToolTipDuration);
+                    toolTip.Show(title, window, location.X, location.Y
+//                        , ToolTipDuration
+                        );
                 }
                 else
                 {
